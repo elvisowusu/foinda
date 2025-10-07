@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Comfortaa, Poppins } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import "./globals.css";
 
@@ -12,12 +13,13 @@ const poppins = Poppins({
 const comfortaa = Comfortaa({
   variable: "--font-comfortaa",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"], // You can adjust the weights as needed
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
   title: "Foinda",
-  description: "Embark on a journey beyond borders.",
+  description:
+    "Empowering African creators to transform creativity into capital - sustainably and joyfully",
 };
 
 export default function RootLayout({
@@ -29,6 +31,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${poppins.variable} ${comfortaa.variable} antialiased`}>
         {children}
+        {/* ✅ Add Speed Insights component */}
+        <SpeedInsights />
       </body>
     </html>
   );

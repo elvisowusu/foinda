@@ -15,7 +15,7 @@ export default function HomePage() {
 
       {/* Subheading */}
       <p className="z-10 mt-6 max-w-2xl text-gray-400 text-base md:text-lg font-light tracking-wide">
-        Empowering African creators to transform creativity into capital —
+        Empowering African creators to transform creativity into capital
         sustainably and joyfully.
       </p>
 

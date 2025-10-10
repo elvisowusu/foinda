@@ -4,6 +4,7 @@ import Image from "next/image";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import Lottie from "lottie-react";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 interface HeroVisualProps {
   moneyImageSrc?: string;
@@ -27,14 +28,16 @@ export default function HeroVisual({
 
   return (
     <div
-      className=" relative 
+      className="
+        relative 
         w-full 
         mt-[10.3rem] 
         md:w-[700px] 
         flex 
         justify-center 
-        items-center 
-        scale-[1]"
+        items-center
+        overflow-visible
+      "
     >
       {/* DotLottie background */}
       <div className="absolute inset-0 z-10 flex justify-center items-end opacity-70">
@@ -66,24 +69,41 @@ export default function HeroVisual({
         </div>
       )}
 
-      {/* Foreground Money Image */}
-      <div className="relative z-20">
+      {/* Foreground Human / Money Image (Animated on Scroll) */}
+      <motion.div
+        className="relative z-20"
+        initial={{ y: 150, opacity: 0, scale: 0.9 }}
+        whileInView={{ y: 0, opacity: 1, scale: 1 }}
+        transition={{
+          type: "spring",
+          stiffness: 80,
+          damping: 15,
+          duration: 1.2,
+        }}
+        viewport={{ once: true, amount: 0.4 }} // 👈 triggers when 40% visible
+      >
         <Image
           src={moneyImageSrc}
-          alt="Money coins"
+          alt="Human illustration"
           width={700}
           height={700}
           className="object-contain drop-shadow-2xl"
           priority
         />
 
-        {/* Foinda Pay Tag */}
-        <div className="absolute bottom-[0px] right-0">
+        {/* Foinda Pay Tag — fades in slightly later */}
+        <motion.div
+          className="absolute bottom-[0px] right-0"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.6 }}
+          viewport={{ once: true, amount: 0.4 }}
+        >
           <div className="px-5 py-2 rounded-xl bg-gradient-to-r from-orange-400 to-orange-500 shadow-lg text-white font-semibold">
             Foinda Pay
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 }

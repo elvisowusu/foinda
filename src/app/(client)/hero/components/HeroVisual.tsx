@@ -32,7 +32,7 @@ export default function HeroVisual({
         className="
         relative 
         w-full 
-        md:mt-[10.3rem] 
+        md:mt-[8.5rem] 
         md:w-[700px] 
         flex 
         justify-center 

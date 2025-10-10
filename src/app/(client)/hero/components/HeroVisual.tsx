@@ -28,18 +28,7 @@ export default function HeroVisual({
 
   return (
     <div className="flex-1 flex justify-center items-center order-1 md:order-2 scale-[0.9] md:scale-[1] lg:scale-[1.05]">
-      <div
-        className="
-        relative 
-        w-full 
-        md:mt-[8.5rem] 
-        md:w-[700px] 
-        flex 
-        justify-center 
-        items-center
-        overflow-visible
-      "
-      >
+      <div className="relative w-full md:mt-[8.5rem] md:w-[700px] flex justify-center items-center overflow-visible">
         {/* DotLottie background */}
         <div className="absolute inset-0 z-10 flex justify-center items-end opacity-70">
           <DotLottieReact
@@ -70,7 +59,7 @@ export default function HeroVisual({
           </div>
         )}
 
-        {/* Foreground Human / Money Image (Animated on Scroll) */}
+        {/* Foreground Human / Money Image */}
         <motion.div
           className="relative z-20"
           initial={{ y: 150, opacity: 0, scale: 0.9 }}
@@ -81,7 +70,7 @@ export default function HeroVisual({
             damping: 15,
             duration: 1.2,
           }}
-          viewport={{ once: true, amount: 0.4 }} // 👈 triggers when 40% visible
+          viewport={{ once: true, amount: 0.4 }}
         >
           <Image
             src={moneyImageSrc}
@@ -92,7 +81,7 @@ export default function HeroVisual({
             priority
           />
 
-          {/* Foinda Pay Tag — fades in slightly later */}
+          {/* Foinda Pay Tag */}
           <motion.div
             className="absolute bottom-[20px] right-0"
             initial={{ opacity: 0, y: 20 }}
@@ -100,7 +89,7 @@ export default function HeroVisual({
             transition={{ delay: 0.6, duration: 0.6 }}
             viewport={{ once: true, amount: 0.4 }}
           >
-            <div className="px-5 py-2 rounded-xl bg-gradient-to-r from-orange-400 to-orange-500 shadow-lg text-white font-semibold">
+            <div className="px-5 py-2 rounded-xl bg-gradient-to-r from-[#3F8EFC] to-orange-500 shadow-lg text-white font-semibold">
               Foinda Pay
             </div>
           </motion.div>

@@ -11,12 +11,13 @@ export default function HeroText() {
       transition={{ duration: 0.8 }}
       className="flex-1 text-center md:text-left space-y-5 order-2 md:order-1 max-w-lg"
     >
-      <h1 className="font-bold text-gray-900 leading-[1.1] text-[clamp(1.8rem,4vw,3rem)] text-2xl">
+      <h1 className="font-bold text-[#1B2A41] leading-[1.1] text-[clamp(1.8rem,4vw,3rem)] text-2xl">
         The Future of <span className="text-orange-500">Creator Finance</span>
       </h1>
 
-      <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
-        Foinda empowers creators with global payments and smart financial tools.
+      <p className="text-[#1B2A41] text-base opacity-80 leading-relaxed">
+        From payments to funding and analytics — Foinda gives creators and
+        digital entrepreneurs everything they need to thrive.
       </p>
 
       <div className="flex flex-col lg:flex-row gap-3 pt-4 justify-center lg:justify-start">

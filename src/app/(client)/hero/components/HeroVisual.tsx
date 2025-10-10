@@ -12,7 +12,7 @@ interface HeroVisualProps {
 }
 
 export default function HeroVisual({
-  moneyImageSrc = "/image.png",
+  moneyImageSrc = "/human1.png",
   dotLottieSrc = "https://lottie.host/9a7b05e7-559c-4c12-af2d-1575936271f6/wdgsp48St8.lottie",
   lottieJsonUrl = "https://assets3.lottiefiles.com/packages/lf20_5gdcuanx.json",
 }: HeroVisualProps) {
@@ -20,31 +20,48 @@ export default function HeroVisual({
 
   useEffect(() => {
     fetch(lottieJsonUrl)
-      .then(res => res.json())
+      .then((res) => res.json())
       .then((data: object) => setSocialAnimation(data))
-      .catch(err => console.error("Failed to load Lottie JSON:", err));
+      .catch((err) => console.error("Failed to load Lottie JSON:", err));
   }, [lottieJsonUrl]);
 
   return (
-    <div className="relative w-full md:w-[480px] flex justify-center items-center">
+    <div
+      className=" relative 
+        w-full 
+        mt-[10.3rem] 
+        md:w-[700px] 
+        flex 
+        justify-center 
+        items-center 
+        scale-[1]"
+    >
       {/* DotLottie background */}
-      <div className="absolute inset-0 z-0 flex justify-center items-end opacity-50">
+      <div className="absolute inset-0 z-10 flex justify-center items-end opacity-70">
         <DotLottieReact
           src={dotLottieSrc}
           loop
           autoplay
-          style={{ width: "140%", height: "140%", transform: "translateY(20%)" }}
+          style={{
+            width: "70%",
+            height: "100%",
+            transform: "translateY(10%)",
+          }}
         />
       </div>
 
       {/* JSON Lottie background */}
       {socialAnimation && (
-        <div className="absolute inset-0 z-10 flex justify-center items-end opacity-60">
+        <div className="absolute inset-0 z-0 flex justify-center items-end opacity-100">
           <Lottie
             animationData={socialAnimation}
             loop
             autoplay
-            style={{ width: "130%", height: "130%", transform: "translateY(15%)" }}
+            style={{
+              width: "200%",
+              height: "200%",
+              transform: "translateY(35%)",
+            }}
           />
         </div>
       )}
@@ -54,14 +71,14 @@ export default function HeroVisual({
         <Image
           src={moneyImageSrc}
           alt="Money coins"
-          width={500}
-          height={500}
+          width={700}
+          height={700}
           className="object-contain drop-shadow-2xl"
           priority
         />
 
         {/* Foinda Pay Tag */}
-        <div className="absolute bottom-[-16px] right-0">
+        <div className="absolute bottom-[0px] right-0">
           <div className="px-5 py-2 rounded-xl bg-gradient-to-r from-orange-400 to-orange-500 shadow-lg text-white font-semibold">
             Foinda Pay
           </div>

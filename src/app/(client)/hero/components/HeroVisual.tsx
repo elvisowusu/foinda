@@ -28,7 +28,7 @@ export default function HeroVisual({
 
   return (
     <div className="flex-1 flex justify-center items-center order-1 md:order-2 scale-[0.9] md:scale-[1] lg:scale-[1.05]">
-      <div className="relative w-full md:mt-[8.3rem] md:w-[700px] flex justify-center items-center overflow-visible">
+      <div className="relative w-full md:mt-[8.2rem] md:w-[700px] flex justify-center items-center overflow-visible">
         {/* DotLottie background */}
         <div className="absolute inset-0 z-10 flex justify-center items-end opacity-70">
           <DotLottieReact

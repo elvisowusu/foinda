@@ -34,7 +34,7 @@ export default function HeroHighlights() {
       initial={{ opacity: 0, x: 50 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.8 }}
-      className="flex-1 flex flex-col gap-4 md:gap-5 items-center md:items-start text-center md:text-left order-3"
+      className="flex-1 hidden md:flex flex-col gap-4 md:gap-5 items-center md:items-start text-center md:text-left order-3"
     >
       {highlights.map((h, i) => (
         <HighlightItem key={i} icon={h.icon} label={h.label} />

@@ -93,7 +93,7 @@ export default function HeroVisual({
 
         {/* Foinda Pay Tag — fades in slightly later */}
         <motion.div
-          className="absolute bottom-[0px] right-0"
+          className="absolute bottom-[20px] right-0"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.6 }}

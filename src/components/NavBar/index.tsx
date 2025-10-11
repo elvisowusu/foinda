@@ -114,7 +114,7 @@ export default function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.2 }}
-                className="absolute right-0 mt-2 w-[22.5rem] bg-white shadow-lg rounded-lg border overflow-hidden z-50"
+                className="absolute -right-4 mt-2 w-screen bg-white shadow-lg rounded-lg border overflow-hidden z-50"
               >
                 <div className="flex flex-col ">
                   {navLinks.map((navLink, index) => {
@@ -126,7 +126,7 @@ export default function Navbar() {
                         key={index}
                         href={navLink.link}
                         onClick={() => setIsOpen(false)}
-                        className={`px-4 py-3 text-left text-sm border-b transition-colors ${
+                        className={`px-4 py-3 text-left text-sm transition-colors ${
                           isActive
                             ? "text-orange-500 font-medium"
                             : "text-[#1B2A41] hover:text-orange-500"
@@ -137,7 +137,7 @@ export default function Navbar() {
                     );
                   })}
                   <Link href={"/login"} onClick={() => setIsOpen(false)}>
-                    <Button className="mx-4 my-2 border-b h-10 w-[9rem] bg-orange-500 text-white hover:bg-orange-700 border-none rounded-md">
+                    <Button className="mx-4 my-2 h-10 w-[9rem] bg-orange-500 text-white hover:bg-orange-700 border-none rounded-md">
                       Sign in
                     </Button>
                   </Link>

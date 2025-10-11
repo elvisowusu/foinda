@@ -88,7 +88,7 @@ export default function Navbar() {
             </Button>
           </Link>
           <Link href={"/signup"}>
-            <Button className="rounded-full cursor-pointer h-12 w-44 bg-orange-500 text-white hover:bg-orange-600 border-none">
+            <Button className="rounded-full cursor-pointer h-10 w-40 bg-orange-500 text-white hover:bg-orange-600 border-none">
               Get Started
             </Button>
           </Link>

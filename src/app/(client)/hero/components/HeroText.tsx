@@ -36,8 +36,9 @@ export default function HeroText() {
       </h1>
 
       <p className="text-[#1B2A41] text-base opacity-80 leading-relaxed">
-        From payments to funding and analytics — Foinda gives creators and
-        digital entrepreneurs everything they need to thrive.
+        From payments to funding and analytics - Foinda empowers African
+        creators, freelancers, and digital entrepreneurs with everything they
+        need to thrive.
       </p>
 
       <div className="flex flex-col lg:flex-row gap-3 pt-4 justify-center lg:justify-start">

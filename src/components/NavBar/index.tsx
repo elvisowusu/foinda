@@ -79,14 +79,6 @@ export default function Navbar() {
 
         {/* Desktop buttons */}
         <div className="hidden sm:flex items-center gap-4">
-          <Link href={"/login"}>
-            <Button
-              variant={"link"}
-              className="cursor-pointer text-[#1B2A41] hover:text-orange-500 transition duration-200"
-            >
-              Sign in
-            </Button>
-          </Link>
           <Link href={"/signup"}>
             <Button className="rounded-full cursor-pointer h-10 w-40 bg-orange-500 text-white hover:bg-orange-600 border-none">
               Get Started
@@ -136,11 +128,6 @@ export default function Navbar() {
                       </Link>
                     );
                   })}
-                  <Link href={"/login"} onClick={() => setIsOpen(false)}>
-                    <Button className="mx-4 my-2 h-10 w-[9rem] bg-orange-500 text-white hover:bg-orange-700 border-none rounded-md">
-                      Sign in
-                    </Button>
-                  </Link>
                   <Link href={"/signup"} onClick={() => setIsOpen(false)}>
                     <Button className="mx-4 my-2 h-10 w-[9rem] bg-[#1B2A41] text-white hover:bg-blue-950 border-none rounded-md">
                       Get Started

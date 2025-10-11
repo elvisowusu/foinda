@@ -8,7 +8,7 @@ export default function HomeLayout({
 }>) {
   return (
     <div className="font-poppins">
-      {/* <NavBar /> */}
+      <NavBar />
       {children}
       {/* <Footer /> */}
     </div>

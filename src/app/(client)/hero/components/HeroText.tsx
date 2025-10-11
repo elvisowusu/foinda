@@ -3,6 +3,26 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
+interface HeroButton {
+  label: string;
+  onClick?: () => void;
+  type: "primary" | "secondary";
+}
+
+// Data array for buttons
+const buttons: HeroButton[] = [
+  {
+    label: "Get Started",
+    onClick: () => console.log("Get Started clicked"),
+    type: "primary",
+  },
+  {
+    label: "Learn More",
+    onClick: () => console.log("Learn More clicked"),
+    type: "secondary",
+  },
+];
+
 export default function HeroText() {
   return (
     <motion.div
@@ -21,19 +41,21 @@ export default function HeroText() {
       </p>
 
       <div className="flex flex-col lg:flex-row gap-3 pt-4 justify-center lg:justify-start">
-        <Button
-          size="lg"
-          className="bg-orange-500 hover:bg-orange-600 text-white font-medium w-full lg:w-auto"
-        >
-          Get Started
-        </Button>
-        <Button
-          variant="outline"
-          size="lg"
-          className="border-gray-300 text-gray-700 hover:bg-gray-50 w-full lg:w-auto"
-        >
-          Learn More
-        </Button>
+        {buttons.map((btn, index) => (
+          <Button
+            key={index}
+            size="lg"
+            onClick={btn.onClick}
+            variant={btn.type === "secondary" ? "outline" : undefined}
+            className={`cursor-pointer w-full lg:w-auto font-medium ${
+              btn.type === "primary"
+                ? "bg-orange-500 text-white hover:bg-orange-600"
+                : "border-gray-300 text-gray-700 hover:bg-gray-50"
+            }`}
+          >
+            {btn.label}
+          </Button>
+        ))}
       </div>
     </motion.div>
   );

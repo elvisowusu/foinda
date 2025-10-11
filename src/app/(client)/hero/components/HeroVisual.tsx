@@ -89,7 +89,7 @@ export default function HeroVisual({
             transition={{ delay: 0.6, duration: 0.6 }}
             viewport={{ once: true, amount: 0.4 }}
           >
-            <div className="px-5 py-2 rounded-xl bg-gradient-to-r from-[#3F8EFC] to-orange-500 shadow-lg text-white font-semibold">
+            <div className="px-5 py-2 rounded-xl bg-gradient-to-r from-orange-500 to-[#4e80ca] shadow-lg text-white font-semibold">
               Foinda Pay
             </div>
           </motion.div>

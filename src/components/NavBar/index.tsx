@@ -13,7 +13,17 @@ import { navLinks } from "@/lib/constants";
 export default function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Handle scroll to add shadow
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 0);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Close dropdown if clicked outside
   useEffect(() => {
@@ -30,7 +40,11 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="w-full fixed z-20 font-poppins bg-white text-[#1B2A41] shadow-sm">
+    <nav
+      className={`w-full fixed z-20 font-poppins bg-white text-[#1B2A41] transition-shadow duration-300 ${
+        scrolled ? "shadow-md" : ""
+      }`}
+    >
       <div className="max-width-wrapper flex justify-between items-center py-3">
         <Link href={"/"}>
           <Image

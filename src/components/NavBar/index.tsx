@@ -1,45 +1,56 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { MenuIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
 import { navLinks } from "@/lib/constants";
 
 export default function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdown if clicked outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
-    <nav className="w-full fixed z-20 font-poppins transition-colors duration-200 text-[#1B2A41] shadow-sm bg-white">
-      <div className="max-width-wrapper flex justify-between items-center">
+    <nav className="w-full fixed z-20 font-poppins bg-white text-[#1B2A41] shadow-sm">
+      <div className="max-width-wrapper flex justify-between items-center py-3">
         <Link href={"/"}>
-          <Image src="/assets/svgs/logo.svg" width={50} height={40} alt="Foinda" />
+          <Image
+            src="/assets/svgs/logo.svg"
+            width={50}
+            height={40}
+            alt="Foinda"
+          />
         </Link>
 
         {/* Desktop nav links */}
-        <div className="hidden items-center gap-6 text-sm md:flex">
+        <div className="hidden md:flex items-center gap-6 text-sm">
           {navLinks.map((navLink, index) => {
             const isActive =
               pathname === navLink.link || pathname.startsWith(navLink.link + "/");
-
             return (
               <Link
                 key={index}
                 href={navLink.link}
-                className={`link transition-colors ${
+                className={`transition-colors ${
                   isActive
                     ? "text-orange-500 underline underline-offset-4"
                     : "text-[#1B2A41] hover:text-orange-500"
@@ -52,7 +63,7 @@ export default function Navbar() {
         </div>
 
         {/* Desktop buttons */}
-        <div className="hidden items-center gap-4 sm:flex">
+        <div className="hidden sm:flex items-center gap-4">
           <Link href={"/login"}>
             <Button
               variant={"link"}
@@ -62,74 +73,65 @@ export default function Navbar() {
             </Button>
           </Link>
           <Link href={"/signup"}>
-            <Button className="rounded-full cursor-pointer h-12 w-44 bg-[#1B2A41] text-white hover:bg-orange-600 ease-out duration-150 border-none">
+            <Button className="rounded-full h-12 w-44 bg-orange-500 text-white hover:bg-orange-600 border-none">
               Get Started
             </Button>
           </Link>
         </div>
 
-        {/* Mobile menu */}
-        <Sheet open={isOpen} onOpenChange={setIsOpen}>
-  <SheetTrigger className="sm:hidden border p-2 rounded-md">
-    <MenuIcon className="w-6 h-6 text-[#1B2A41]" />
-  </SheetTrigger>
+        {/* Mobile dropdown */}
+        <div className="sm:hidden relative" ref={dropdownRef}>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="p-2 border rounded-md"
+          >
+            <MenuIcon className="w-6 h-6 text-[#1B2A41]" />
+          </button>
 
-  <SheetContent side="left" className="p-0">
-    <motion.div
-      initial={{ x: "-100%" }}
-      animate={{ x: 0 }}
-      exit={{ x: "-100%" }}
-      transition={{ type: "spring", stiffness: 300, damping: 30 }}
-      className="h-full w-full bg-white pl-7"
-    >
-      <SheetHeader>
-        <SheetTitle>
-          <Image
-            src="/assets/svgs/logo.svg"
-            width={80}
-            height={70}
-            alt="Foinda"
-          />
-        </SheetTitle>
-
-        <div className="flex flex-col items-start gap-6 pt-16">
-          {navLinks.map((navLink, index) => {
-            const isActive =
-              pathname === navLink.link ||
-              pathname.startsWith(navLink.link + "/");
-
-            return (
-              <SheetClose asChild key={index}>
-                <Link
-                  className={`text-2xl w-full text-left font-poppins font-medium tracking-tighter transition-colors ${
-                    isActive
-                      ? "text-orange-500 underline"
-                      : "text-[#1B2A41] hover:text-orange-500"
-                  }`}
-                  href={navLink.link}
-                >
-                  {navLink.text}
-                </Link>
-              </SheetClose>
-            );
-          })}
-
-          <Link href={"/login"}>
-            <Button className="rounded-full h-12 w-44 bg-orange-600 text-white hover:bg-orange-700 cursor-pointer border-none">
-              Sign in
-            </Button>
-          </Link>
-          <Link href={"/signup"}>
-            <Button className="rounded-full h-12 w-44 bg-[#1B2A41] text-white cursor-pointer hover:bg-blue-950 border-none">
-              Get Started
-            </Button>
-          </Link>
+          <AnimatePresence>
+            {isOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2 }}
+                className="absolute right-0 mt-2 w-44 bg-white shadow-lg rounded-lg border overflow-hidden z-50"
+              >
+                <div className="flex flex-col">
+                  {navLinks.map((navLink, index) => {
+                    const isActive =
+                      pathname === navLink.link ||
+                      pathname.startsWith(navLink.link + "/");
+                    return (
+                      <Link
+                        key={index}
+                        href={navLink.link}
+                        onClick={() => setIsOpen(false)}
+                        className={`px-4 py-3 text-left text-sm transition-colors ${
+                          isActive
+                            ? "text-orange-500 font-medium"
+                            : "text-[#1B2A41] hover:text-orange-500"
+                        }`}
+                      >
+                        {navLink.text}
+                      </Link>
+                    );
+                  })}
+                  <Link href={"/login"} onClick={() => setIsOpen(false)}>
+                    <Button className="mx-4 my-2 h-10 w-[9rem] bg-orange-600 text-white hover:bg-orange-700 border-none rounded-md">
+                      Sign in
+                    </Button>
+                  </Link>
+                  <Link href={"/signup"} onClick={() => setIsOpen(false)}>
+                    <Button className="mx-4 my-2 h-10 w-[9rem] bg-[#1B2A41] text-white hover:bg-blue-950 border-none rounded-md">
+                      Get Started
+                    </Button>
+                  </Link>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
-      </SheetHeader>
-    </motion.div>
-  </SheetContent>
-</Sheet>
-
       </div>
     </nav>
   );

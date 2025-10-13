@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import TransactionLines from "./transactionLines";
+import TransactionLines from "./transactionLines"; // Assuming this component is defined
 import { CreditCard, Globe2, Users, Zap } from "lucide-react";
 
 const features = [
@@ -28,16 +28,27 @@ const features = [
 export default function WalletIntro() {
   return (
     <section className="relative overflow-hidden">
-      <div className="max-w-7xl py-8 overflow-hidden flex h-[32rem] mx-auto lg:mx-[10rem] rounded-3xl my-[5rem] bg-white/90 backdrop-blur-sm shadow-lg border border-[#F97316]/10 relative">
+      <div
+        className="max-w-7xl mx-4 my-8 p-6 
+                    md:mx-8 md:p-8 
+                    lg:p-0 
+                    md:flex lg:h-[32rem] lg:my-[5rem] lg:mx-[10rem] 
+                    rounded-3xl bg-white/90 backdrop-blur-sm shadow-lg border border-[#F97316]/10 relative overflow-hidden"
+      >
         {/* Text Section */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="px-12 w-[36rem] relative z-10"
+          className="w-full relative z-10 
+                    lg:px-12 lg:w-[36rem]"
         >
-          <h2 className="text-[2rem] font-extrabold mb-4 leading-tight">
+          <h2
+            className="text-2xl font-extrabold mb-3 leading-snug 
+                        md:text-3xl 
+                        lg:text-[2rem] lg:mb-4 lg:leading-tight"
+          >
             <span className="text-[#F97316]">Foinda Wallet</span> — Your
             Borderless Account
           </h2>
@@ -54,10 +65,10 @@ export default function WalletIntro() {
             {features.map((feature, idx) => {
               const Icon = feature.icon;
               return (
-                <li key={idx} className="flex items-center gap-3">
+                <li key={idx} className="flex items-start gap-3">
                   <Icon
                     size={18}
-                    className={`text-[#F97316] flex-shrink-0`}
+                    className={`text-[#F97316] flex-shrink-0 mt-[2px]`}
                   />
                   {feature.text}
                 </li>
@@ -66,16 +77,19 @@ export default function WalletIntro() {
           </ul>
 
           {/* Buttons */}
-          <div className="mt-10 flex flex-wrap gap-3">
+          <div
+            className="mt-8 flex flex-wrap gap-3 
+                        lg:mt-10"
+          >
             <Link
               href="/signup"
-              className="bg-[#F97316] text-white px-3 py-3 rounded-lg font-medium hover:bg-[#e86410] transition"
+              className="bg-[#F97316] text-white px-4 py-3 rounded-lg font-medium hover:bg-[#e86410] transition text-sm"
             >
               Create Wallet
             </Link>
             <Link
               href="/docs"
-              className="border border-[#F97316]/70 text-[#F97316] px-3 py-3 rounded-lg font-medium hover:bg-[#F97316]/10 transition"
+              className="border border-[#F97316]/70 text-[#F97316] px-4 py-3 rounded-lg font-medium hover:bg-[#F97316]/10 transition text-sm"
             >
               See How It Works
             </Link>
@@ -86,17 +100,21 @@ export default function WalletIntro() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="absolute right-0 rounded-br-3xl bottom-0"
+          className="relative hidden md:block mt-8 mx-auto max-w-full 
+                     md:absolute md:right-0 md:bottom-0 md:mt-0 md:w-auto"
         >
           <TransactionLines />
           <Image
-            src="/phone-hands.png"
+            src="/phone-hands.png" // Ensure this image path is correct
             alt="Foinda wallet UI"
             width={900}
             height={800}
-            className="w-[380px] lg:w-[400px] drop-shadow-2xl border-none relative z-10"
+            // Mobile: Set a max width and use w-3/4 to keep it smaller, centered with mx-auto
+            // Desktop (lg): Full width of its container, reset centering
+            className="w-3/4 max-w-[300px] mx-auto h-auto drop-shadow-2xl border-none relative z-10 
+                       md:w-[400px] md:mx-0 lg:max-w-none"
             priority
           />
         </motion.div>

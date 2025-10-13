@@ -12,9 +12,9 @@ export default function WalletPage() {
       {/* === Section 1: Wallet Intro === */}
       <WalletIntro />
       {/* === Section 2: Cross-Border Power === */}
-      <CrossBorderPower />
+      {/* <CrossBorderPower /> */}
       {/* === Section 3: Foinda Advance === */}
-      <FoindaAdvance />
+      {/* <FoindaAdvance /> */}
       {/* === CTA === */}
       <section className="py-24 text-center bg-[#1B2A41] text-white">
         <h2 className="text-3xl md:text-4xl font-semibold mb-4">

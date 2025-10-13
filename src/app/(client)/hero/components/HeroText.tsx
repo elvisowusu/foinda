@@ -32,7 +32,8 @@ export default function HeroText() {
       className="flex-1 text-center md:text-left space-y-5 order-2 md:order-1 max-w-lg"
     >
       <h1 className="font-bold text-[#1B2A41] leading-[1.1] text-[clamp(1.8rem,4vw,3rem)] text-2xl">
-        The Future of <span className="text-orange-500">Creator Finance</span>
+        Powering the Future of{" "}
+        <span className="text-orange-500">Creator Finance</span>
       </h1>
 
       <p className="text-[#1B2A41] text-base opacity-80 leading-relaxed">

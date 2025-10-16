@@ -32,7 +32,7 @@ export default function WalletIntro() {
         className="max-w-7xl mx-4 my-8 p-6 
                     md:mx-8 md:p-8 
                     lg:p-0 
-                    md:flex lg:h-[32rem] lg:my-[5rem] lg:mx-[10rem] 
+                    md:flex lg:h-[32rem] lg:py-[3rem] lg:mx-[10rem] 
                     rounded-3xl bg-white/90 backdrop-blur-sm shadow-lg border border-[#F97316]/10 relative overflow-hidden"
       >
         {/* Text Section */}

@@ -78,7 +78,7 @@ export default function Footer() {
             >
               <Link href="/" className="flex items-center mb-6">
                 <Image
-                  src="/coin.avif"
+                  src="/logo.jpg"
                   width={40}
                   height={40}
                   alt="Foinda Logo"
@@ -174,9 +174,9 @@ export default function Footer() {
               <input
                 type="email"
                 placeholder="Stay in the loop on creator finance"
-                className="flex-1 px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                className="flex-1 px-2 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-orange-500 focus:border-transparent"
               />
-              <button className="bg-orange-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-orange-600 transition-colors">
+              <button className="bg-orange-500 text-white px-4 py-3 rounded-lg font-medium hover:bg-orange-600 transition-colors">
                 Subscribe
               </button>
             </motion.div>

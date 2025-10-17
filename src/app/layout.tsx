@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     description: "Transform your creativity into capital with Foinda's borderless payment solutions and instant funding for African creators.",
     images: [
       {
-        url: "/coin.avif",
+        url: "/logo.jpg",
         width: 1200,
         height: 630,
         alt: "Foinda - Empowering African Creators",

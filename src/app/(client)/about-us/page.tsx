@@ -57,7 +57,7 @@ const team = [
 
 export default function AboutUs() {
   return (
-    <main className="bg-white text-[#1B2A41]">
+    <main className="bg-white text-[#1B2A41] overflow-x-hidden">
       {/* Hero Section with Animation */}
       <section className="relative py-24 px-6 bg-gradient-to-b from-white via-[#F97316]/5 to-[#74CBE3]/10 overflow-hidden">
         <div className="max-w-7xl mx-auto">

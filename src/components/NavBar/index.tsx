@@ -80,7 +80,7 @@ export default function Navbar() {
         {/* Desktop buttons */}
         <div className="hidden sm:flex items-center gap-4">
           <Link href={"/signup"}>
-            <Button className="rounded-full cursor-pointer h-10 w-40 bg-orange-500 text-white hover:bg-orange-600 border-none">
+            <Button className="rounded-full cursor-pointer h-10 w-35 bg-orange-500 text-white hover:bg-orange-600 border-none">
               Get Started
             </Button>
           </Link>
@@ -129,7 +129,7 @@ export default function Navbar() {
                     );
                   })}
                   <Link href={"/signup"} onClick={() => setIsOpen(false)}>
-                    <Button className="mx-4 my-2 h-10 w-[9rem] bg-[#1B2A41] text-white hover:bg-blue-950 border-none rounded-md">
+                    <Button className="mx-4 my-2 h-10 w-[9rem]  text-white bg-orange-500 hover:bg-orange-600 border-none rounded-md">
                       Get Started
                     </Button>
                   </Link>

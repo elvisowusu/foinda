@@ -89,7 +89,7 @@ export default function Footer() {
               
               <p className="text-gray-300 leading-relaxed mb-6 max-w-md">
                 Empowering African creators with borderless financial solutions. 
-                From payments to funding, we're building the future of creator finance.
+                From payments to funding, we&apos;re building the future of creator finance.
               </p>
 
               {/* Contact Info */}

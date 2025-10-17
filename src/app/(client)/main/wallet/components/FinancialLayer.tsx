@@ -1,9 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { DollarSign, BarChart, FileText, Star, Repeat, CreditCard, ShieldCheck, Zap } from "lucide-react";
+import { DollarSign, BarChart, FileText, Repeat, CreditCard, ShieldCheck } from "lucide-react";
 
 const financialFeatures = [
   { icon: <Repeat size={18} className="text-[#FCD34D] flex-shrink-0" />, text: "Real-time FX conversion with transparent rates" },
@@ -120,7 +119,7 @@ export default function FinancialLayer() {
             <div className="bg-white rounded-3xl p-8 shadow-2xl border border-gray-100">
               <h3 className="text-2xl font-bold mb-4 text-[#1B2A41]">Foinda Advance</h3>
               <p className="text-gray-600 mb-6">
-                Get paid for tomorrow's creativity today. Revenue-based cash advances with no collateral needed.
+                Get paid for tomorrow&apos;s creativity today. Revenue-based cash advances with no collateral needed.
               </p>
               
               {/* Advance Popup Mockup */}

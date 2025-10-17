@@ -52,7 +52,7 @@ export default function TrustNetworkLayer() {
             Create with <span className="text-orange-500">Confidence</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Every post. Every song. Every video. Protected by Foinda's invisible
+            Every post. Every song. Every video. Protected by Foinda&apos;s invisible
             Social API. Join the verified creator network building trust through
             technology.
           </p>

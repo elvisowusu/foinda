@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Users, Target, Heart, Globe, Award, Zap } from "lucide-react";
+import { Heart, Globe, Award, Zap } from "lucide-react";
 
 const stats = [
   { number: "10K+", label: "Active Creators" },
@@ -73,7 +73,7 @@ export default function AboutUs() {
                 Empowering African <span className="text-orange-500">Creators</span>
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed mb-8">
-                We're building the financial infrastructure that African creators, freelancers, 
+                We&apos;re building the financial infrastructure that African creators, freelancers, 
                 and digital entrepreneurs need to thrive in the global economy.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed mb-8">
@@ -264,7 +264,7 @@ export default function AboutUs() {
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
                 We believe that every creator deserves access to the same financial opportunities 
-                regardless of where they're located, and we're building the infrastructure to make that possible.
+                regardless of where they&apos;re located, and we&apos;re building the infrastructure to make that possible.
               </p>
             </motion.div>
             
@@ -379,7 +379,7 @@ export default function AboutUs() {
               Ready to Join Our Mission?
             </h2>
             <p className="text-xl text-gray-300 mb-8">
-              Be part of the movement that's transforming how African creators 
+              Be part of the movement that&apos;s transforming how African creators 
               access financial services and grow their businesses.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

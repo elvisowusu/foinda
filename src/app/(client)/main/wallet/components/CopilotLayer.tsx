@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
 import { MessageCircle, Bot, TrendingUp, DollarSign, Users, Zap, Send } from "lucide-react";
 
 const copilotFeatures = [
@@ -46,7 +45,6 @@ const sampleMessages = [
 ];
 
 export default function CopilotLayer() {
-  const [activeMessage, setActiveMessage] = useState(0);
 
   return (
     <section className="py-24 px-6 bg-gradient-to-b from-[#F97316]/5 to-white">
@@ -120,7 +118,7 @@ export default function CopilotLayer() {
                   </div>
                   <div className="bg-white/10 rounded-2xl rounded-bl-md p-3 max-w-xs">
                     <p className="text-sm mb-2">
-                      Let's monetize your 3 most-viewed videos this week. I've identified your Ghana travel content is trending!
+                      Let&apos;s monetize your 3 most-viewed videos this week. I&apos;ve identified your Ghana travel content is trending!
                     </p>
                     <button className="bg-orange-500 text-white px-3 py-1 rounded-lg text-xs hover:bg-orange-600 transition">
                       Create Preset Pack
@@ -256,8 +254,7 @@ export default function CopilotLayer() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow cursor-pointer"
-                onClick={() => setActiveMessage(index)}
+                className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
@@ -265,7 +262,7 @@ export default function CopilotLayer() {
                   </div>
                   <div className="text-sm font-medium text-gray-600">You</div>
                 </div>
-                <p className="text-sm text-gray-800 mb-4 font-medium">"{message.user}"</p>
+                <p className="text-sm text-gray-800 mb-4 font-medium">&ldquo;{message.user}&rdquo;</p>
                 
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-[#4e80ca] rounded-full flex items-center justify-center">

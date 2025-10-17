@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Mail, Phone, MapPin, Clock, Send, MessageCircle, HelpCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Send, HelpCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const contactInfo = [
@@ -99,7 +99,7 @@ export default function ContactUs() {
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Have questions about Foinda? Need help with your account? 
-              We're here to help you succeed.
+              We&apos;re here to help you succeed.
             </p>
           </motion.div>
         </div>

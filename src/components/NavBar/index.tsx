@@ -46,13 +46,15 @@ export default function Navbar() {
       }`}
     >
       <div className="max-width-wrapper flex justify-between items-center py-3">
-        <Link href={"/"}>
+        <Link href={"/"} className="flex items-center">
           <Image
-            src="/assets/svgs/logo.svg"
-            width={50}
+            src="/coin.avif"
+            width={40}
             height={40}
             alt="Foinda"
+            className="rounded-full"
           />
+          <span className="ml-2 text-xl font-bold text-[#1B2A41]">Foinda</span>
         </Link>
 
         {/* Desktop nav links */}

@@ -10,7 +10,7 @@ export default function HomeLayout({
     <div className="font-poppins">
       <NavBar />
       {children}
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

@@ -17,9 +17,60 @@ const comfortaa = Comfortaa({
 });
 
 export const metadata: Metadata = {
-  title: "Foinda",
+  title: "Foinda - Empowering African Creators with Borderless Finance",
   description:
-    "Empowering African creators to transform creativity into capital - sustainably and joyfully",
+    "Foinda empowers African creators, freelancers, and digital entrepreneurs with borderless payment solutions, instant funding, and comprehensive financial tools. Transform your creativity into capital.",
+  keywords: [
+    "African creators",
+    "borderless payments",
+    "creator finance",
+    "mobile money",
+    "cross-border payments",
+    "digital wallet",
+    "freelancer payments",
+    "Africa fintech"
+  ],
+  authors: [{ name: "Foinda Team" }],
+  creator: "Foinda",
+  publisher: "Foinda",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://foinda.com",
+    siteName: "Foinda",
+    title: "Foinda - Empowering African Creators with Borderless Finance",
+    description: "Transform your creativity into capital with Foinda's borderless payment solutions and instant funding for African creators.",
+    images: [
+      {
+        url: "/coin.avif",
+        width: 1200,
+        height: 630,
+        alt: "Foinda - Empowering African Creators",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Foinda - Empowering African Creators with Borderless Finance",
+    description: "Transform your creativity into capital with Foinda's borderless payment solutions and instant funding for African creators.",
+    images: ["/coin.avif"],
+  },
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+  },
 };
 
 export default function RootLayout({

@@ -186,31 +186,9 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-gray-700 relative">
-        {/* Pulsing Logo Background */}
-        <motion.div
-          className="absolute inset-0 flex items-center justify-center pointer-events-none"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 0.1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <motion.div
-            animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.1, 0.3, 0.1],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="text-6xl font-bold text-orange-500"
-          >
-            F
-          </motion.div>
-        </motion.div>
         
-        <div className="max-w-7xl mx-auto px-6 py-6 relative z-10">
+        
+        <div className="max-w-7xl mx-auto px-6 py-6 md:py-10 relative z-10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <motion.div
               initial={{ opacity: 0, y: 10 }}

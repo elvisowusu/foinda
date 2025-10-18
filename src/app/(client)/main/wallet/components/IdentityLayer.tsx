@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Link, Shield, CheckCircle, Users, Zap } from "lucide-react";
+import { Link, Shield, CheckCircle, Users } from "lucide-react";
 
 const identityFeatures = [
   {

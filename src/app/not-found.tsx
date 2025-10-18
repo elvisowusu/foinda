@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Home, ArrowLeft, Search } from "lucide-react";
+import { Home, ArrowLeft } from "lucide-react";
 
 export default function NotFound() {
   return (
@@ -38,7 +38,7 @@ export default function NotFound() {
               Page Not Found
             </h1>
             <p className="text-lg text-gray-600 leading-relaxed">
-              Oops! The page you're looking for doesn't exist. It might have been moved, 
+              Oops! The page you&apos;re looking for doesn&apos;t exist. It might have been moved, 
               deleted, or you entered the wrong URL.
             </p>
           </motion.div>

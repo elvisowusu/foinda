@@ -41,7 +41,7 @@ export default function StoreGrowthLayer() {
                     <div className="w-16 h-16 bg-orange-500 rounded-full mx-auto mb-2 flex items-center justify-center">
                       <span className="text-white font-bold">▶</span>
                     </div>
-                    <div className="text-sm text-gray-300">"Ghana Trip Vlog"</div>
+                    <div className="text-sm text-gray-300">&ldquo;Ghana Trip Vlog&rdquo;</div>
                   </div>
                 </div>
                 <div className="flex items-center justify-between text-sm">

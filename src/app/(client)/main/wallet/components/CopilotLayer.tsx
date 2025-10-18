@@ -153,7 +153,8 @@ export default function CopilotLayer() {
                   <div className="bg-white/10 rounded-2xl rounded-bl-md p-3 max-w-xs">
                     <p className="text-sm mb-2">
                       Let&apos;s monetize your 3 most-viewed videos this week.
-                      I&apos;ve identified your Ghana travel content is trending!
+                      I&apos;ve identified your Ghana travel content is
+                      trending!
                     </p>
                     <button className="bg-orange-500 text-white px-3 py-1 rounded-lg text-xs hover:bg-orange-600 transition">
                       Create Preset Pack
@@ -284,33 +285,36 @@ export default function CopilotLayer() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
+                className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl flex flex-col justify-between transition-shadow"
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold text-sm">U</span>
+                <div>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
+                      <span className="text-white font-bold text-sm">U</span>
+                    </div>
+                    <div className="text-sm font-medium text-gray-600">You</div>
                   </div>
-                  <div className="text-sm font-medium text-gray-600">You</div>
+                  <p className="text-sm text-gray-800 mb-4 font-medium">
+                    “{message.user}”
+                  </p>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-[#4e80ca] rounded-full flex items-center justify-center">
+                      <Bot className="w-4 h-4 text-white" />
+                    </div>
+                    <div className="text-sm font-medium text-gray-600">
+                      Copilot
+                    </div>
+                  </div>
                 </div>
+                <div>
+                  <p className="text-sm text-gray-700 mb-4 ">
+                    {message.copilot}
+                  </p>
 
-                <p className="text-sm text-gray-800 mb-4 font-medium">
-                  “{message.user}”
-                </p>
-
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-[#4e80ca] rounded-full flex items-center justify-center">
-                    <Bot className="w-4 h-4 text-white" />
-                  </div>
-                  <div className="text-sm font-medium text-gray-600">
-                    Copilot
-                  </div>
+                  <button className="w-full cursor-pointer bg-orange-100 text-orange-700 py-2 rounded-lg text-sm font-medium hover:bg-orange-200 transition">
+                    {message.action}
+                  </button>
                 </div>
-
-                <p className="text-sm text-gray-700 mb-4">{message.copilot}</p>
-
-                <button className="w-full bg-orange-100 text-orange-700 py-2 rounded-lg text-sm font-medium hover:bg-orange-200 transition">
-                  {message.action}
-                </button>
               </motion.div>
             ))}
           </div>

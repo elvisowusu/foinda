@@ -1,8 +1,8 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Heart, Users, Globe, Star } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
 
+/* ------------------------------- ARRAYS ------------------------------- */
 const slides = [
   {
     image: "/images/community1.jpg",
@@ -26,16 +27,16 @@ const slides = [
       "We connect creative minds globally, fostering partnerships that drive innovation and cultural exchange.",
   },
   {
-    image: "/images/community2.jpg",
-    title: "Global Collaboration",
-    description:
-      "We connect creative minds globally, fostering partnerships that drive innovation and cultural exchange.",
-  },
-  {
     image: "/images/community3.jpg",
     title: "Inclusive Growth",
     description:
       "We prioritize inclusivity by ensuring that every voice—no matter the background—has a platform to shine.",
+  },
+  {
+    image: "/images/community2.jpg",
+    title: "Global Collaboration",
+    description:
+      "We connect creative minds globally, fostering partnerships that drive innovation and cultural exchange.",
   },
   {
     image: "/images/community3.jpg",
@@ -57,29 +58,69 @@ const slides = [
   },
 ];
 
-const icons = [Heart, Users, Globe, Star];
+/* --------------------------- ANIMATION CONFIGS --------------------------- */
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0 },
+};
 
+/* ---------------------------- MAIN COMPONENT ---------------------------- */
 export default function CommunityImpactLayer() {
+  const carouselRef = useRef<HTMLDivElement | null>(null); // ✅ proper type
+  const [isPaused, setIsPaused] = useState(false);
+
+  // Autoplay infinite loop
+  useEffect(() => {
+    const carouselEl = carouselRef.current;
+    if (!carouselEl) return;
+
+    const nextBtn = carouselEl.querySelector<HTMLButtonElement>(
+      "[data-carousel-next]"
+    );
+
+    const interval = setInterval(() => {
+      if (!isPaused && nextBtn) nextBtn.click();
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
   return (
-    <section className="relative flex flex-col items-center justify-center w-full min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
+    <section className="relative flex flex-col items-center justify-center w-full  bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white overflow-x-hidden overflow-y-hidden px-4 py-16">
       {/* Title */}
       <motion.h2
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
+        variants={fadeInUp}
+        initial="hidden"
+        animate="show"
         transition={{ duration: 0.6 }}
-        className="text-4xl md:text-6xl font-bold text-center mb-8"
+        className="text-4xl md:text-6xl font-bold text-center mb-10"
       >
         Our Community Impact
       </motion.h2>
 
-      {/* Carousel Container - shadcn block style */}
-      <div className="relative w-full max-w-5xl">
-        <Carousel opts={{ align: "start" }} className="w-full">
+      {/* Carousel */}
+      <motion.div
+        ref={carouselRef}
+        variants={fadeInUp}
+        initial="hidden"
+        animate="show"
+        transition={{ duration: 0.8, delay: 0.2 }}
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        className="relative w-full max-w-5xl"
+      >
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true, // ✅ Infinite looping
+          }}
+          className="w-full"
+        >
           <CarouselContent>
             {slides.map((slide, index) => (
               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                <div className="p-1">
-                  <Card className="overflow-hidden bg-gray-800 border-gray-700">
+                <div className="p-2">
+                  <Card className="overflow-hidden bg-gray-800 border border-gray-700 shadow-xl rounded-2xl">
                     <CardContent className="p-0">
                       <div className="relative">
                         <Image
@@ -105,27 +146,9 @@ export default function CommunityImpactLayer() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious data-carousel-prev />
+          <CarouselNext data-carousel-next />
         </Carousel>
-      </div>
-
-      {/* Icons Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.3 }}
-        className="flex flex-wrap items-center justify-center gap-8 mt-12"
-      >
-        {icons.map((Icon, i) => (
-          <motion.div
-            key={i}
-            whileHover={{ scale: 1.2 }}
-            className="bg-gray-800/60 p-4 rounded-2xl shadow-lg"
-          >
-            <Icon className="w-10 h-10 text-emerald-400" />
-          </motion.div>
-        ))}
       </motion.div>
     </section>
   );

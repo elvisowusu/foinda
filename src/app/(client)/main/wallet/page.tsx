@@ -28,7 +28,7 @@ export default function WalletPage() {
       <CopilotLayer />
       
       {/* === Section 7: Community & Impact Layer === */}
-      {/* <CommunityImpactLayer /> */}
+      <CommunityImpactLayer />
     </main>
   );
 }

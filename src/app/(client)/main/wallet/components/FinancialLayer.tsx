@@ -142,8 +142,8 @@ export default function FinancialLayer() {
           </motion.div>
 
           {/* Right Side - Advance Feature */}
-          <motion.div {...fadeUp(0.2)} className="relative overflow-hidden">
-            <div className="bg-white rounded-3xl p-8 shadow-2xl border border-gray-100 overflow-hidden">
+          <motion.div {...fadeUp(0.2)} className="relative overflow-hidden rounded-3xl">
+            <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 overflow-hidden">
               <h3 className="text-2xl font-bold mb-4 text-[#1B2A41]">
                 Foinda Advance
               </h3>
@@ -191,7 +191,7 @@ export default function FinancialLayer() {
             <motion.div
               key={i}
               {...fadeUp(i * 0.05)}
-              className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow overflow-hidden"
+              className="bg-white m-4 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow overflow-hidden"
             >
               <div className="flex items-start gap-3">
                 {feature.icon}

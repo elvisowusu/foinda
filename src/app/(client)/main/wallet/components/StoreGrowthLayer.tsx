@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ShoppingBag, TrendingUp, Package, Star, Zap } from "lucide-react";
 import {
@@ -10,6 +11,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
+import { sharedCarouselOpts } from "@/lib/carouselConfig";
 
 /* -------------------- ARRAYS -------------------- */
 const growthFeatures = [
@@ -76,9 +78,21 @@ const creators = [
     revenue: "₵3,200",
     growth: "+420%",
   },
+  {
+    name: "Yaw Mensah",
+    product: "Digital Art",
+    revenue: "₵1,500",
+    growth: "+200%",
+  },
+  {
+    name: "Nana Aba",
+    product: "Lifestyle Coaching",
+    revenue: "₵2,000",
+    growth: "+260%",
+  },
 ];
 
-/* -------------------- SHARED ANIMATION CONFIG -------------------- */
+/* -------------------- ANIMATIONS -------------------- */
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   show: (delay = 0) => ({
@@ -87,21 +101,38 @@ const fadeUp = {
     transition: { duration: 0.7, delay },
   }),
 };
-
 const slideLeft = {
   hidden: { opacity: 0, x: -40 },
   show: { opacity: 1, x: 0, transition: { duration: 0.8 } },
 };
-
 const slideRight = {
   hidden: { opacity: 0, x: 40 },
   show: { opacity: 1, x: 0, transition: { duration: 0.8 } },
 };
 
-/* -------------------- COMPONENT -------------------- */
 export default function StoreGrowthLayer() {
+  const carouselRef = useRef<HTMLDivElement | null>(null);
+
+  const [isPaused, setIsPaused] = useState(false);
+
+  // 🔁 Auto-play carousel
+  useEffect(() => {
+    const carouselEl = carouselRef.current;
+    if (!carouselEl) return;
+
+    const nextBtn = carouselEl.querySelector(
+      "[data-carousel-next]"
+    ) as HTMLElement | null;
+
+    const interval = setInterval(() => {
+      if (!isPaused && nextBtn) nextBtn.click();
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
   return (
-    <section className="py-24 px-4 sm:px-6 bg-gradient-to-b from-white to-[#F97316]/5 overflow-x-hidden overflow-y-hidden">
+    <section className="py-24 px-4 sm:px-6 bg-gradient-to-b from-white to-[#F97316]/5 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
@@ -172,7 +203,7 @@ export default function StoreGrowthLayer() {
                 </div>
               </motion.div>
 
-              {/* Product Grid */}
+              {/* Product Grid (Desktop) */}
               <div className="grid grid-cols-2 gap-3 sm:gap-4">
                 {productTypes.map((product, i) => (
                   <motion.div
@@ -256,30 +287,32 @@ export default function StoreGrowthLayer() {
           </motion.div>
         </div>
 
-        {/* Carousel */}
+        {/* ✅ Creators Carousel with autoplay */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
           whileInView="show"
           custom={0.3}
           viewport={{ once: true }}
-          className="mt-12 sm:mt-16 overflow-x-hidden overflow-y-hidden"
+          className="mt-12 sm:mt-16 overflow-hidden"
         >
           <h3 className="text-xl sm:text-2xl font-bold text-center mb-6 sm:mb-8 text-[#1B2A41]">
             Creators Making It Happen
           </h3>
-          <div className="max-w-4xl mx-auto relative px-2">
-            <Carousel
-              opts={{ align: "start" }}
-              className="w-full overflow-hidden"
-            >
+          <motion.div
+            ref={carouselRef}
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            className="max-w-4xl mx-auto relative px-2"
+          >
+            <Carousel opts={{ align: "start", loop: true }} className="w-full">
               <CarouselContent className="-ml-2 sm:-ml-4">
                 {creators.map((creator) => (
                   <CarouselItem
                     key={creator.name}
                     className="basis-full sm:basis-1/2 lg:basis-1/3 pl-2 sm:pl-4"
                   >
-                    <Card className="rounded-2xl shadow-md hover:shadow-lg transition-all">
+                    <Card className="rounded-2xl shadow-md hover:shadow-lg my-2 transition-all bg-white">
                       <CardContent className="p-6 text-center">
                         <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-[#4e80ca] rounded-full mx-auto mb-4 flex items-center justify-center">
                           <span className="text-white font-bold text-xl">
@@ -303,10 +336,10 @@ export default function StoreGrowthLayer() {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
+              <CarouselPrevious data-carousel-prev />
+              <CarouselNext data-carousel-next />
             </Carousel>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

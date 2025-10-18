@@ -167,7 +167,7 @@ export default function IdentityLayer() {
               </p>
             </div>
 
-            <div className="space-y-6 overflow-hidden">
+            <div className="space-y-6 ">
               {identityFeatures.map((feature, i) => (
                 <motion.div
                   key={i}
@@ -199,12 +199,12 @@ export default function IdentityLayer() {
         {/* Stats Section */}
         <motion.div
           {...fadeUp(0.3)}
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-12 overflow-hidden"
+          className="grid grid-cols-1 m-4 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-12 "
         >
           {stats.map((s, i) => (
             <div
               key={i}
-              className="text-center p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow overflow-hidden"
+              className="text-center p-4 bg-white rounded-2xl shadow-lg hover:shadow-lg transition-shadow "
             >
               <div className="text-3xl sm:text-4xl font-bold text-orange-500 mb-2">
                 {s.number}

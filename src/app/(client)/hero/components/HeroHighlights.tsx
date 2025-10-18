@@ -12,9 +12,9 @@ function HighlightItem({ icon, label }: HighlightItemProps) {
   return (
     <motion.div
       whileHover={{ x: 5 }}
-      className="flex items-center gap-3 bg-[#1B2A41] rounded-xl px-5 py-3 shadow-md hover:shadow-lg transition-shadow duration-300"
+      className="flex items-center gap-3 bg-[#1B2A41] rounded-xl p-3 shadow-md hover:shadow-lg transition-shadow duration-300"
     >
-      <div className="text-orange-500">{icon}</div>
+      <div className="text-orange-500 w-6 h-5">{icon}</div>
       <p className="text-[#74CBE3] font-semibold text-sm sm:text-base">{label}</p>
     </motion.div>
   );

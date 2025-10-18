@@ -7,10 +7,10 @@ export default function HomeLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="font-poppins">
+    <div className="font-poppins min-h-screen">
       <NavBar />
       {children}
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

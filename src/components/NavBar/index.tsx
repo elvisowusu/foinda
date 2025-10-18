@@ -46,13 +46,15 @@ export default function Navbar() {
       }`}
     >
       <div className="max-width-wrapper flex justify-between items-center py-3">
-        <Link href={"/"}>
+        <Link href={"/"} className="flex items-center">
           <Image
-            src="/assets/svgs/logo.svg"
-            width={50}
+            src="/logo.jpg"
+            width={40}
             height={40}
-            alt="Foinda"
+            alt="Foinda Logo"
+            className="rounded-full"
           />
+          <span className="ml-2 text-xl font-bold text-[#1B2A41]">Foinda</span>
         </Link>
 
         {/* Desktop nav links */}
@@ -106,7 +108,7 @@ export default function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.2 }}
-                className="absolute -right-4 mt-2 w-screen bg-white shadow-lg rounded-lg border overflow-hidden z-50"
+                className="absolute right-0 mt-2 w-72 bg-white shadow-lg rounded-lg border overflow-hidden z-50"
               >
                 <div className="flex flex-col ">
                   {navLinks.map((navLink, index) => {

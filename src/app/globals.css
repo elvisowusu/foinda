@@ -120,7 +120,12 @@
   body {
     @apply bg-background text-foreground font-poppins overflow-x-hidden;
   }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-bodoni_Moda), sans-serif;
+    font-weight: 400; /* since Quintessential only supports 400 */
+  }
 }
+
 
 @layer utilities {
   .max-width-wrapper {

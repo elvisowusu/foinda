@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Comfortaa, Poppins } from "next/font/google";
+import { Comfortaa, Poppins, Bodoni_Moda } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import "./globals.css";
@@ -8,6 +8,12 @@ const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+});
+
+const bodoni_Moda = Bodoni_Moda({
+  variable: "--font-bodoni_Moda",
+  subsets: ["latin"],
+  weight: ["400"],
 });
 
 const comfortaa = Comfortaa({
@@ -28,7 +34,7 @@ export const metadata: Metadata = {
     "cross-border payments",
     "digital wallet",
     "freelancer payments",
-    "Africa fintech"
+    "Africa fintech",
   ],
   authors: [{ name: "Foinda Team" }],
   creator: "Foinda",
@@ -50,7 +56,8 @@ export const metadata: Metadata = {
     url: "https://foinda.com",
     siteName: "Foinda",
     title: "Foinda - Empowering African Creators with Borderless Finance",
-    description: "Transform your creativity into capital with Foinda's borderless payment solutions and instant funding for African creators.",
+    description:
+      "Transform your creativity into capital with Foinda's borderless payment solutions and instant funding for African creators.",
     images: [
       {
         url: "/logo.jpg",
@@ -63,7 +70,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Foinda - Empowering African Creators with Borderless Finance",
-    description: "Transform your creativity into capital with Foinda's borderless payment solutions and instant funding for African creators.",
+    description:
+      "Transform your creativity into capital with Foinda's borderless payment solutions and instant funding for African creators.",
     images: ["/coin.avif"],
   },
   viewport: {
@@ -80,7 +88,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} ${comfortaa.variable} antialiased`}>
+      <body
+        className={`${poppins.variable} ${comfortaa.variable} ${bodoni_Moda.variable} antialiased`}
+      >
         {children}
         {/* ✅ Add Speed Insights component */}
         <SpeedInsights />

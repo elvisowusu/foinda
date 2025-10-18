@@ -10,25 +10,25 @@ export default function WalletPage() {
   return (
     <main className="bg-white text-[#1B2A41]">
       {/* === Section 1: Wallet Intro === */}
-      <WalletIntro />
+      {/* <WalletIntro /> */}
       
       {/* === Section 2: Financial Layer (Merged CrossBorderPower + FoindaAdvance) === */}
-      <FinancialLayer />
+      {/* <FinancialLayer /> */}
       
       {/* === Section 3: Identity Layer === */}
-      <IdentityLayer />
+      {/* <IdentityLayer /> */}
       
       {/* === Section 4: Store & Growth Layer === */}
-      <StoreGrowthLayer />
+      {/* <StoreGrowthLayer /> */}
       
       {/* === Section 5: Trust & Network Layer === */}
-      <TrustNetworkLayer />
+      {/* <TrustNetworkLayer /> */}
       
       {/* === Section 6: Copilot Layer === */}
-      <CopilotLayer />
+      {/* <CopilotLayer /> */}
       
       {/* === Section 7: Community & Impact Layer === */}
-      <CommunityImpactLayer />
+      {/* <CommunityImpactLayer /> */}
     </main>
   );
 }

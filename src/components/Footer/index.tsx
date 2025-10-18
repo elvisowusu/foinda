@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube } from "lucide-react";
 
+/* -------------------- ARRAYS AT TOP -------------------- */
 const footerSections = [
   {
     title: "About",
@@ -62,12 +63,13 @@ const contactInfo = [
   { icon: <MapPin className="w-4 h-4" />, text: "Accra, Ghana" }
 ];
 
+/* -------------------- COMPONENT -------------------- */
 export default function Footer() {
   return (
-    <footer className="bg-[#1B2A41] text-white">
+    <footer className="bg-[#1B2A41] text-white w-full overflow-hidden">
       {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
+      <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-10">
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <motion.div
@@ -86,7 +88,7 @@ export default function Footer() {
                 />
                 <span className="ml-3 text-2xl font-bold">Foinda</span>
               </Link>
-              
+
               <p className="text-gray-300 leading-relaxed mb-6 max-w-md">
                 Empowering African creators with borderless financial solutions. 
                 From payments to funding, we&apos;re building the future of creator finance.
@@ -103,7 +105,7 @@ export default function Footer() {
               </div>
 
               {/* Social Links */}
-              <div className="flex gap-4">
+              <div className="flex flex-wrap gap-3">
                 {socialLinks.map((social, index) => (
                   <motion.a
                     key={index}
@@ -150,7 +152,7 @@ export default function Footer() {
 
       {/* Newsletter Section */}
       <div className="border-t border-gray-700">
-        <div className="max-w-7xl mx-auto px-6 py-8">
+        <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -163,61 +165,61 @@ export default function Footer() {
                 Get the latest news about Foinda features, creator success stories, and industry insights.
               </p>
             </motion.div>
-            
-            <motion.div
+
+            <motion.form
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="flex gap-4"
+              className="flex flex-col sm:flex-row gap-4"
+              onSubmit={(e) => e.preventDefault()}
             >
               <input
                 type="email"
-                placeholder="Stay in the loop on creator finance"
-                className="flex-1 px-2 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                placeholder="Enter your email"
+                className="flex-1 px-3 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-orange-500 focus:border-transparent w-full"
               />
-              <button className="bg-orange-500 text-white px-4 py-3 rounded-lg font-medium hover:bg-orange-600 transition-colors">
+              <button
+                type="submit"
+                className="bg-orange-500 text-white px-5 py-3 rounded-lg font-medium hover:bg-orange-600 transition-colors w-full sm:w-auto"
+              >
                 Subscribe
               </button>
-            </motion.div>
+            </motion.form>
           </div>
         </div>
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-gray-700 relative">
-        
-        
-        <div className="max-w-7xl mx-auto px-6 py-6 md:py-10 relative z-10">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="text-gray-400 text-sm"
-            >
-              © 2024 Foinda. All rights reserved.
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="flex gap-6 text-sm"
-            >
-              <Link href="/terms" className="text-gray-400 hover:text-orange-500 transition-colors">
-                Terms
-              </Link>
-              <Link href="/privacy" className="text-gray-400 hover:text-orange-500 transition-colors">
-                Privacy
-              </Link>
-              <Link href="/cookies" className="text-gray-400 hover:text-orange-500 transition-colors">
-                Cookies
-              </Link>
-            </motion.div>
-          </div>
+      <div className="border-t border-gray-700">
+        <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-gray-400 text-sm text-center md:text-left"
+          >
+            © 2025 Foinda. All rights reserved.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="flex flex-wrap justify-center gap-6 text-sm"
+          >
+            <Link href="/terms" className="text-gray-400 hover:text-orange-500 transition-colors">
+              Terms
+            </Link>
+            <Link href="/privacy" className="text-gray-400 hover:text-orange-500 transition-colors">
+              Privacy
+            </Link>
+            <Link href="/cookies" className="text-gray-400 hover:text-orange-500 transition-colors">
+              Cookies
+            </Link>
+          </motion.div>
         </div>
       </div>
     </footer>

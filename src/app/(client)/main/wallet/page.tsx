@@ -13,7 +13,7 @@ export default function WalletPage() {
       <WalletIntro />
       
       {/* === Section 2: Financial Layer (Merged CrossBorderPower + FoindaAdvance) === */}
-      {/* <FinancialLayer /> */}
+      <FinancialLayer />
       
       {/* === Section 3: Identity Layer === */}
       {/* <IdentityLayer /> */}

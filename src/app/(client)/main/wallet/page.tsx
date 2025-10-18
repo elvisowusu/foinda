@@ -16,7 +16,7 @@ export default function WalletPage() {
       <FinancialLayer />
       
       {/* === Section 3: Identity Layer === */}
-      {/* <IdentityLayer /> */}
+      <IdentityLayer />
       
       {/* === Section 4: Store & Growth Layer === */}
       {/* <StoreGrowthLayer /> */}

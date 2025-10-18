@@ -19,7 +19,7 @@ export default function WalletPage() {
       <IdentityLayer />
       
       {/* === Section 4: Store & Growth Layer === */}
-      {/* <StoreGrowthLayer /> */}
+      <StoreGrowthLayer />
       
       {/* === Section 5: Trust & Network Layer === */}
       {/* <TrustNetworkLayer /> */}

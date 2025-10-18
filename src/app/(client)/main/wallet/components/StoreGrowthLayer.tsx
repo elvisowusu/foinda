@@ -11,25 +11,25 @@ import {
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
 
-/* -------------------- ARRAYS AT TOP -------------------- */
+/* -------------------- ARRAYS -------------------- */
 const growthFeatures = [
   {
-    icon: <ShoppingBag className="w-6 h-6 text-orange-500" />,
+    icon: ShoppingBag,
     title: "Digital Storefront",
     description: "Launch your store in minutes with pre-built templates",
   },
   {
-    icon: <TrendingUp className="w-6 h-6 text-orange-500" />,
+    icon: TrendingUp,
     title: "Growth Insights",
     description: "AI-powered analytics to optimize your content strategy",
   },
   {
-    icon: <Package className="w-6 h-6 text-orange-500" />,
+    icon: Package,
     title: "Product Recommendations",
     description: "Sell merch, courses, and presets based on your audience",
   },
   {
-    icon: <Star className="w-6 h-6 text-orange-500" />,
+    icon: Star,
     title: "Trending Alerts",
     description: "Get notified when your content is gaining traction",
   },
@@ -54,12 +54,7 @@ const productTypes = [
     price: "₵80",
     trending: true,
   },
-  {
-    name: "Music Beat",
-    type: "Audio File",
-    price: "₵30",
-    trending: false,
-  },
+  { name: "Music Beat", type: "Audio File", price: "₵30", trending: false },
 ];
 
 const creators = [
@@ -83,18 +78,39 @@ const creators = [
   },
 ];
 
+/* -------------------- SHARED ANIMATION CONFIG -------------------- */
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  show: (delay = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, delay },
+  }),
+};
+
+const slideLeft = {
+  hidden: { opacity: 0, x: -40 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.8 } },
+};
+
+const slideRight = {
+  hidden: { opacity: 0, x: 40 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.8 } },
+};
+
 /* -------------------- COMPONENT -------------------- */
 export default function StoreGrowthLayer() {
   return (
-    <section className="py-24 px-4 sm:px-6 bg-gradient-to-b from-white to-[#F97316]/5 overflow-x-hidden">
+    <section className="py-24 px-4 sm:px-6 bg-gradient-to-b from-white to-[#F97316]/5 overflow-x-hidden overflow-y-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-12 sm:mb-16 px-2"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          custom={0.1}
+          viewport={{ once: true, amount: 0.3 }}
+          className="text-center mb-14 sm:mb-20"
         >
           <h2 className="text-3xl sm:text-5xl font-bold mb-4 sm:mb-6">
             Turn Followers Into a{" "}
@@ -106,22 +122,23 @@ export default function StoreGrowthLayer() {
           </p>
         </motion.div>
 
-        {/* Main Content Grid */}
+        {/* Main Content */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 items-center mb-16">
           {/* Left */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="relative"
+            variants={slideLeft}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            className="relative overflow-hidden"
           >
-            <div className="bg-gradient-to-br from-[#1B2A41] to-[#0F1A2B] rounded-3xl p-6 sm:p-8 text-white relative overflow-hidden">
-              {/* Video thumb */}
+            <div className="bg-gradient-to-br from-[#1B2A41] to-[#0F1A2B] rounded-3xl p-6 sm:p-8 text-white shadow-xl">
+              {/* Video Preview */}
               <motion.div
-                initial={{ scale: 1 }}
-                whileInView={{ scale: 0.9, y: -10 }}
-                transition={{ duration: 1, delay: 0.5 }}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="show"
+                custom={0.2}
                 viewport={{ once: true }}
                 className="bg-gray-800 rounded-2xl p-4 mb-6"
               >
@@ -131,7 +148,7 @@ export default function StoreGrowthLayer() {
                       <span className="text-white font-bold">▶</span>
                     </div>
                     <div className="text-sm text-gray-300">
-                      &ldquo;Ghana Trip Vlog&rdquo;
+                      “Ghana Trip Vlog”
                     </div>
                   </div>
                 </div>
@@ -141,11 +158,12 @@ export default function StoreGrowthLayer() {
                 </div>
               </motion.div>
 
-              {/* Arrow */}
+              {/* Zap Icon */}
               <motion.div
-                initial={{ opacity: 0, scale: 0 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 1 }}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="show"
+                custom={0.4}
                 viewport={{ once: true }}
                 className="flex justify-center mb-6"
               >
@@ -154,19 +172,17 @@ export default function StoreGrowthLayer() {
                 </div>
               </motion.div>
 
-              {/* Product grid */}
+              {/* Product Grid */}
               <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                {productTypes.map((product, index) => (
+                {productTypes.map((product, i) => (
                   <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{
-                      duration: 0.6,
-                      delay: 1.2 + index * 0.1,
-                    }}
+                    key={product.name}
+                    variants={fadeUp}
+                    initial="hidden"
+                    whileInView="show"
+                    custom={0.6 + i * 0.1}
                     viewport={{ once: true }}
-                    className={`bg-white/10 rounded-xl p-3 relative ${
+                    className={`bg-white/10 rounded-xl p-3 relative transition-all duration-300 ${
                       product.trending ? "ring-2 ring-orange-500" : ""
                     }`}
                   >
@@ -192,10 +208,10 @@ export default function StoreGrowthLayer() {
 
           {/* Right */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            variants={slideRight}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
             className="space-y-6 sm:space-y-8"
           >
             <div>
@@ -208,51 +224,62 @@ export default function StoreGrowthLayer() {
                 monetize your creativity.
               </p>
             </div>
+
             <div className="space-y-4 sm:space-y-6">
-              {growthFeatures.map((feature, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="flex items-start gap-3 sm:gap-4 p-4 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
-                >
-                  <div className="flex-shrink-0 mt-1">{feature.icon}</div>
-                  <div>
-                    <h4 className="font-semibold text-[#1B2A41] mb-1 sm:mb-2">
-                      {feature.title}
-                    </h4>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      {feature.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
+              {growthFeatures.map((feature, i) => {
+                const Icon = feature.icon;
+                return (
+                  <motion.div
+                    key={feature.title}
+                    variants={fadeUp}
+                    initial="hidden"
+                    whileInView="show"
+                    custom={0.5 + i * 0.1}
+                    viewport={{ once: true }}
+                    className="flex items-start gap-3 sm:gap-4 p-4 bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow"
+                  >
+                    <div className="flex-shrink-0 mt-1">
+                      <Icon className="w-6 h-6 text-orange-500" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-[#1B2A41] mb-1 sm:mb-2">
+                        {feature.title}
+                      </h4>
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
           </motion.div>
         </div>
 
         {/* Carousel */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          custom={0.3}
           viewport={{ once: true }}
-          className="mt-12 sm:mt-16"
+          className="mt-12 sm:mt-16 overflow-x-hidden overflow-y-hidden"
         >
           <h3 className="text-xl sm:text-2xl font-bold text-center mb-6 sm:mb-8 text-[#1B2A41]">
             Creators Making It Happen
           </h3>
           <div className="max-w-4xl mx-auto relative px-2">
-            <Carousel opts={{ align: "start" }} className="w-full overflow-hidden">
+            <Carousel
+              opts={{ align: "start" }}
+              className="w-full overflow-hidden"
+            >
               <CarouselContent className="-ml-2 sm:-ml-4">
-                {creators.map((creator, i) => (
+                {creators.map((creator) => (
                   <CarouselItem
-                    key={i}
+                    key={creator.name}
                     className="basis-full sm:basis-1/2 lg:basis-1/3 pl-2 sm:pl-4"
                   >
-                    <Card>
+                    <Card className="rounded-2xl shadow-md hover:shadow-lg transition-all">
                       <CardContent className="p-6 text-center">
                         <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-[#4e80ca] rounded-full mx-auto mb-4 flex items-center justify-center">
                           <span className="text-white font-bold text-xl">

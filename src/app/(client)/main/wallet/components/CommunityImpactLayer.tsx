@@ -95,7 +95,7 @@ export default function CommunityImpactLayer() {
         transition={{ duration: 0.6 }}
         className="text-4xl md:text-6xl font-bold text-center mb-10"
       >
-        Our Community Impact
+        Our Community <span className="text-orange-500">Impact</span>
       </motion.h2>
 
       {/* Carousel */}

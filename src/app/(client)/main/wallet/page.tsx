@@ -10,7 +10,7 @@ export default function WalletPage() {
   return (
     <main className="bg-white text-[#1B2A41]">
       {/* === Section 1: Wallet Intro === */}
-      {/* <WalletIntro /> */}
+      <WalletIntro />
       
       {/* === Section 2: Financial Layer (Merged CrossBorderPower + FoindaAdvance) === */}
       {/* <FinancialLayer /> */}

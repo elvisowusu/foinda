@@ -1,59 +1,94 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MessageCircle, Bot, TrendingUp, DollarSign, Users, Zap, Send } from "lucide-react";
+import {
+  MessageCircle,
+  Bot,
+  TrendingUp,
+  DollarSign,
+  Users,
+  Zap,
+  Send,
+} from "lucide-react";
 
+/* ----------------------------- CENTRALIZED ARRAYS ----------------------------- */
 const copilotFeatures = [
   {
     icon: <TrendingUp className="w-6 h-6 text-orange-500" />,
     title: "Growth Analytics",
-    description: "AI-powered insights on your content performance"
+    description: "AI-powered insights on your content performance",
   },
   {
     icon: <DollarSign className="w-6 h-6 text-orange-500" />,
     title: "Revenue Optimization",
-    description: "Smart suggestions to maximize your earnings"
+    description: "Smart suggestions to maximize your earnings",
   },
   {
     icon: <Users className="w-6 h-6 text-orange-500" />,
     title: "Audience Insights",
-    description: "Understand your followers better than ever"
+    description: "Understand your followers better than ever",
   },
   {
     icon: <Zap className="w-6 h-6 text-orange-500" />,
     title: "Action Plans",
-    description: "Daily tasks tailored to your growth goals"
-  }
+    description: "Daily tasks tailored to your growth goals",
+  },
 ];
 
 const sampleMessages = [
   {
     user: "How can I earn more?",
-    copilot: "Let's monetize your 3 most-viewed videos this week. I've identified your Ghana travel content is trending - consider creating a preset pack!",
-    action: "Create Preset Pack"
+    copilot:
+      "Let's monetize your 3 most-viewed videos this week. I've identified your Ghana travel content is trending - consider creating a preset pack!",
+    action: "Create Preset Pack",
   },
   {
     user: "What should I post next?",
-    copilot: "Your audience loves behind-the-scenes content. Try filming your morning routine in Accra - it's 3x more engaging than your current content.",
-    action: "Schedule Content"
+    copilot:
+      "Your audience loves behind-the-scenes content. Try filming your morning routine in Accra - it's 3x more engaging than your current content.",
+    action: "Schedule Content",
   },
   {
     user: "How's my growth?",
-    copilot: "You're up 23% this month! Your collaboration with @travel_ghana boosted your reach by 40%. Want to find more partners?",
-    action: "Find Partners"
-  }
+    copilot:
+      "You're up 23% this month! Your collaboration with @travel_ghana boosted your reach by 40%. Want to find more partners?",
+    action: "Find Partners",
+  },
 ];
 
-export default function CopilotLayer() {
+/* ----------------------------- SHARED MOTION CONFIGS ----------------------------- */
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, delay },
+  }),
+};
 
+const fadeSide = (direction = "left", delay = 0) => ({
+  hidden: { opacity: 0, x: direction === "left" ? -40 : 40 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8, delay } },
+});
+
+const fadeChild = (index) => ({
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, delay: index * 0.1 },
+  },
+});
+
+export default function CopilotLayer() {
   return (
-    <section className="py-24 px-6 bg-gradient-to-b from-[#F97316]/5 to-white">
+    <section className="py-24 px-6 bg-gradient-to-b from-[#F97316]/5 to-white overflow-x-hidden overflow-y-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
           className="text-center mb-16"
         >
@@ -61,24 +96,23 @@ export default function CopilotLayer() {
             Your Personal <span className="text-orange-500">Growth Buddy</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Foinda Copilot turns your data into daily growth actions — 
-            so you always know your next best move.
+            Foinda Copilot turns your data into daily growth actions — so you
+            always know your next best move.
           </p>
         </motion.div>
 
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-16">
-          {/* Left Side - Chat Interface */}
+          {/* Chat Interface */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            variants={fadeSide("left")}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
             className="relative"
           >
-            {/* Chat Interface Mockup */}
             <div className="bg-gradient-to-br from-[#1B2A41] to-[#0F1A2B] rounded-3xl p-6 text-white relative overflow-hidden">
-              {/* Chat Header */}
+              {/* Header */}
               <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/20">
                 <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-[#4e80ca] rounded-full flex items-center justify-center">
                   <Bot className="w-6 h-6 text-white" />
@@ -90,13 +124,12 @@ export default function CopilotLayer() {
                 <div className="ml-auto w-3 h-3 bg-green-500 rounded-full"></div>
               </div>
 
-              {/* Chat Messages */}
+              {/* Messages */}
               <div className="space-y-4 mb-6">
-                {/* User Message */}
                 <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
+                  variants={fadeChild(0)}
+                  initial="hidden"
+                  whileInView="visible"
                   viewport={{ once: true }}
                   className="flex justify-end"
                 >
@@ -105,11 +138,10 @@ export default function CopilotLayer() {
                   </div>
                 </motion.div>
 
-                {/* Copilot Response */}
                 <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
+                  variants={fadeChild(1)}
+                  initial="hidden"
+                  whileInView="visible"
                   viewport={{ once: true }}
                   className="flex gap-3"
                 >
@@ -118,7 +150,8 @@ export default function CopilotLayer() {
                   </div>
                   <div className="bg-white/10 rounded-2xl rounded-bl-md p-3 max-w-xs">
                     <p className="text-sm mb-2">
-                      Let&apos;s monetize your 3 most-viewed videos this week. I&apos;ve identified your Ghana travel content is trending!
+                      Let&apos;s monetize your 3 most-viewed videos this week.
+                      I&apos;ve identified your Ghana travel content is trending!
                     </p>
                     <button className="bg-orange-500 text-white px-3 py-1 rounded-lg text-xs hover:bg-orange-600 transition">
                       Create Preset Pack
@@ -128,9 +161,9 @@ export default function CopilotLayer() {
 
                 {/* Typing Indicator */}
                 <motion.div
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ duration: 0.6, delay: 0.8 }}
+                  variants={fadeChild(2)}
+                  initial="hidden"
+                  whileInView="visible"
                   viewport={{ once: true }}
                   className="flex gap-3"
                 >
@@ -159,7 +192,7 @@ export default function CopilotLayer() {
                 </motion.div>
               </div>
 
-              {/* Chat Input */}
+              {/* Input */}
               <div className="flex gap-3">
                 <input
                   type="text"
@@ -171,7 +204,7 @@ export default function CopilotLayer() {
                 </button>
               </div>
 
-              {/* Background Pattern */}
+              {/* Subtle Background */}
               <div className="absolute inset-0 opacity-5">
                 <div className="absolute top-4 right-4 w-20 h-20 border border-orange-500 rounded-full"></div>
                 <div className="absolute bottom-4 left-4 w-16 h-16 border border-blue-400 rounded-full"></div>
@@ -179,11 +212,11 @@ export default function CopilotLayer() {
             </div>
           </motion.div>
 
-          {/* Right Side - Features */}
+          {/* Feature List */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            variants={fadeSide("right")}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
             className="space-y-8"
           >
@@ -192,38 +225,39 @@ export default function CopilotLayer() {
                 AI-Powered Growth Assistant
               </h3>
               <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                Get personalized advice based on your actual performance data. 
-                Foinda Copilot analyzes your content, audience, and earnings to suggest the best next steps.
+                Get personalized advice based on your actual performance data.
+                Foinda Copilot analyzes your content, audience, and earnings to
+                suggest the best next steps.
               </p>
             </div>
 
-            {/* Features List */}
             <div className="space-y-6">
               {copilotFeatures.map((feature, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  variants={fadeChild(index)}
+                  initial="hidden"
+                  whileInView="visible"
                   viewport={{ once: true }}
                   className="flex items-start gap-4 p-4 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
                 >
-                  <div className="flex-shrink-0 mt-1">
-                    {feature.icon}
-                  </div>
+                  <div className="flex-shrink-0 mt-1">{feature.icon}</div>
                   <div>
-                    <h4 className="font-semibold text-[#1B2A41] mb-2">{feature.title}</h4>
-                    <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
+                    <h4 className="font-semibold text-[#1B2A41] mb-2">
+                      {feature.title}
+                    </h4>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {feature.description}
+                    </p>
                   </div>
                 </motion.div>
               ))}
             </div>
 
-            {/* CTA */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              variants={fadeChild(4)}
+              initial="hidden"
+              whileInView="visible"
               viewport={{ once: true }}
               className="pt-6"
             >
@@ -237,9 +271,9 @@ export default function CopilotLayer() {
 
         {/* Sample Conversations */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
           className="mt-16"
         >
@@ -250,9 +284,9 @@ export default function CopilotLayer() {
             {sampleMessages.map((message, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                variants={fadeChild(index)}
+                initial="hidden"
+                whileInView="visible"
                 viewport={{ once: true }}
                 className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
               >
@@ -262,16 +296,20 @@ export default function CopilotLayer() {
                   </div>
                   <div className="text-sm font-medium text-gray-600">You</div>
                 </div>
-                <p className="text-sm text-gray-800 mb-4 font-medium">&ldquo;{message.user}&rdquo;</p>
-                
+
+                <p className="text-sm text-gray-800 mb-4 font-medium">
+                  “{message.user}”
+                </p>
+
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-[#4e80ca] rounded-full flex items-center justify-center">
                     <Bot className="w-4 h-4 text-white" />
                   </div>
                   <div className="text-sm font-medium text-gray-600">Copilot</div>
                 </div>
+
                 <p className="text-sm text-gray-700 mb-4">{message.copilot}</p>
-                
+
                 <button className="w-full bg-orange-100 text-orange-700 py-2 rounded-lg text-sm font-medium hover:bg-orange-200 transition">
                   {message.action}
                 </button>

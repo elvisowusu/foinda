@@ -22,7 +22,7 @@ export default function WalletPage() {
       <StoreGrowthLayer />
       
       {/* === Section 5: Trust & Network Layer === */}
-      {/* <TrustNetworkLayer /> */}
+      <TrustNetworkLayer />
       
       {/* === Section 6: Copilot Layer === */}
       {/* <CopilotLayer /> */}

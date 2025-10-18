@@ -66,12 +66,12 @@ const fadeUp = {
   }),
 };
 
-const fadeSide = (direction = "left", delay = 0) => ({
+const fadeSide = (direction: "left" | "right" = "left", delay = 0) => ({
   hidden: { opacity: 0, x: direction === "left" ? -40 : 40 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.8, delay } },
 });
 
-const fadeChild = (index) => ({
+const fadeChild = (index: number) => ({
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
@@ -126,6 +126,7 @@ export default function CopilotLayer() {
 
               {/* Messages */}
               <div className="space-y-4 mb-6">
+                {/* User message */}
                 <motion.div
                   variants={fadeChild(0)}
                   initial="hidden"
@@ -138,6 +139,7 @@ export default function CopilotLayer() {
                   </div>
                 </motion.div>
 
+                {/* Copilot reply */}
                 <motion.div
                   variants={fadeChild(1)}
                   initial="hidden"
@@ -159,7 +161,7 @@ export default function CopilotLayer() {
                   </div>
                 </motion.div>
 
-                {/* Typing Indicator */}
+                {/* Typing indicator */}
                 <motion.div
                   variants={fadeChild(2)}
                   initial="hidden"
@@ -172,7 +174,7 @@ export default function CopilotLayer() {
                   </div>
                   <div className="bg-white/10 rounded-2xl rounded-bl-md p-3">
                     <div className="flex gap-1">
-                      {[...Array(3)].map((_, i) => (
+                      {[...Array(3)].map((_, i: number) => (
                         <motion.div
                           key={i}
                           className="w-2 h-2 bg-gray-400 rounded-full"
@@ -203,12 +205,6 @@ export default function CopilotLayer() {
                   <Send className="w-4 h-4" />
                 </button>
               </div>
-
-              {/* Subtle Background */}
-              <div className="absolute inset-0 opacity-5">
-                <div className="absolute top-4 right-4 w-20 h-20 border border-orange-500 rounded-full"></div>
-                <div className="absolute bottom-4 left-4 w-16 h-16 border border-blue-400 rounded-full"></div>
-              </div>
             </div>
           </motion.div>
 
@@ -232,7 +228,7 @@ export default function CopilotLayer() {
             </div>
 
             <div className="space-y-6">
-              {copilotFeatures.map((feature, index) => (
+              {copilotFeatures.map((feature, index: number) => (
                 <motion.div
                   key={index}
                   variants={fadeChild(index)}
@@ -281,7 +277,7 @@ export default function CopilotLayer() {
             See Copilot in Action
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {sampleMessages.map((message, index) => (
+            {sampleMessages.map((message, index: number) => (
               <motion.div
                 key={index}
                 variants={fadeChild(index)}
@@ -305,7 +301,9 @@ export default function CopilotLayer() {
                   <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-[#4e80ca] rounded-full flex items-center justify-center">
                     <Bot className="w-4 h-4 text-white" />
                   </div>
-                  <div className="text-sm font-medium text-gray-600">Copilot</div>
+                  <div className="text-sm font-medium text-gray-600">
+                    Copilot
+                  </div>
                 </div>
 
                 <p className="text-sm text-gray-700 mb-4">{message.copilot}</p>

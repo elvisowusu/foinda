@@ -25,7 +25,7 @@ export default function WalletPage() {
       <TrustNetworkLayer />
       
       {/* === Section 6: Copilot Layer === */}
-      {/* <CopilotLayer /> */}
+      <CopilotLayer />
       
       {/* === Section 7: Community & Impact Layer === */}
       {/* <CommunityImpactLayer /> */}

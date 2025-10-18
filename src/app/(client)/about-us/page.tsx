@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Heart, Globe, Award, Zap } from "lucide-react";
+import { images } from "@/lib/images";
 
 const stats = [
   { number: "10K+", label: "Active Creators" },
@@ -81,10 +82,10 @@ export default function AboutUs() {
                 get paid, protect their work, and grow smarter.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-orange-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-600 transition">
+                <button className="bg-orange-500 cursor-pointer text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-600 transition">
                   Create Your Foinda ID
                 </button>
-                <button className="border border-orange-500 text-orange-500 px-8 py-3 rounded-lg font-semibold hover:bg-orange-50 transition">
+                <button className="border cursor-pointer border-orange-500 text-orange-500 px-8 py-3 rounded-lg font-semibold hover:bg-orange-50 transition">
                   Watch How It Works 🎥
                 </button>
               </div>
@@ -276,7 +277,7 @@ export default function AboutUs() {
               className="flex justify-center"
             >
               <Image
-                src="/human1.png"
+                src={images.foindaAtom}
                 alt="Mission illustration"
                 width={500}
                 height={500}

@@ -144,8 +144,8 @@ export default function StoreGrowthLayer() {
           className="text-center mb-14 sm:mb-20"
         >
           <h2 className="text-3xl sm:text-5xl font-bold mb-4 sm:mb-6">
-            <span className="text-orange-500">Storefront</span> - Turn Followers Into a{" "}
-            <span className="text-orange-500">Business</span>
+            <span className="text-orange-500">Storefront</span> - Turn Followers
+            Into a <span className="text-orange-500">Business</span>
           </h2>
           <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Launch your digital storefront in minutes. Sell merch, courses, and
@@ -245,8 +245,8 @@ export default function StoreGrowthLayer() {
             viewport={{ once: true, amount: 0.3 }}
             className="space-y-6 sm:space-y-8"
           >
-            <div>
-              <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-[#1B2A41]">
+            <div className="text-center">
+              <h3 className="text-4xl font-bold mb-4 bg-gradient-to-r from-orange-500 to-[#4e80ca] bg-clip-text text-transparent">
                 From Content to Commerce
               </h3>
               <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-4 sm:mb-6">

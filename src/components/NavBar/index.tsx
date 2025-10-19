@@ -86,11 +86,18 @@ export default function Navbar() {
 
         {/* Desktop CTA */}
         <div className="hidden sm:flex items-center gap-4">
-          <Link href="/contact-us">
-            <Button className="rounded-full cursor-pointer h-10 w-35 bg-orange-500 text-white hover:bg-orange-600 border-none">
-              Get Started
-            </Button>
-          </Link>
+          <Button
+            onClick={() => {
+              setIsOpen(false);
+              const footer = document.getElementById("footer");
+              if (footer) {
+                footer.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+            className="mx-4 my-2 h-10 w-[9rem] text-white bg-orange-500 hover:bg-orange-600 border-none rounded-md"
+          >
+            Join Waitlist
+          </Button>
         </div>
 
         {/* Mobile dropdown */}

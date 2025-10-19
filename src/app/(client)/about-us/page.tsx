@@ -172,7 +172,7 @@ const AboutUs: React.FC = () => {
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-8">
               We empower digital creators, freelancers, and creative
-              entrepreneurs to access fair financing, seamless payments, and
+              entrepreneurs to access smart financing, seamless payments, and
               growth tools — all in one platform.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -271,7 +271,7 @@ const AboutUs: React.FC = () => {
           </h2>
           <ul className="list-disc list-inside text-gray-600 max-w-3xl mx-auto space-y-4">
             <li>
-              Applying for Ghana Startup Awards (GISA 2025) to gain national
+              Applying for Ghana Startup Awards (GISA 2026) to gain national
               recognition for creator-focused financial innovation.
             </li>
             <li>
@@ -281,7 +281,7 @@ const AboutUs: React.FC = () => {
             </li>
           </ul>
 
-          <h3 className="text-2xl font-semibold mt-12 mb-4">2025 Focus</h3>
+          <h3 className="text-2xl font-semibold mt-12 mb-4">2026 Focus</h3>
           <ul className="list-disc list-inside text-gray-600 space-y-2">
             <li>
               Integrating APIs from Paystack, Flutterwave, MoMo, and Coinbase

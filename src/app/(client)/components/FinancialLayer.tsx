@@ -54,13 +54,13 @@ export default function FinancialLayer() {
         {/* Header */}
         <motion.div {...fadeUp()} className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Smart Money for{" "}
+            <span className="text-orange-500">Foinda Pay</span>-Smart Money for{" "}
             <span className="text-orange-500">Smart Creators</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Foinda Pay lets you get paid instantly across borders. Need funding?
-            Foinda Advance gives you revenue-based cash — backed by your data,
-            not your follower count.
+            A multi-rail payment infrastructure that enables creators and
+            agencies to send, receive, and split revenue seamlessly across
+            mobile money, cards, and wallets.
           </p>
         </motion.div>
 
@@ -142,14 +142,17 @@ export default function FinancialLayer() {
           </motion.div>
 
           {/* Right Side - Advance Feature */}
-          <motion.div {...fadeUp(0.2)} className="relative overflow-hidden rounded-3xl">
+          <motion.div
+            {...fadeUp(0.2)}
+            className="relative overflow-hidden rounded-3xl"
+          >
             <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 overflow-hidden">
               <h3 className="text-2xl font-bold mb-4 text-[#1B2A41]">
                 Foinda Advance
               </h3>
               <p className="text-gray-600 mb-6">
-                Get paid for tomorrow&apos;s creativity today. Revenue-based
-                cash advances with no collateral needed.
+                A revenue-based financing product designed to offer creators
+                milestone-based funding for their projects.
               </p>
 
               <div className="bg-gradient-to-r from-orange-500 to-[#4e80ca] rounded-2xl p-6 text-white relative overflow-hidden">

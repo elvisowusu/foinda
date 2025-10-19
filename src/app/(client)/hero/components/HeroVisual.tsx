@@ -5,6 +5,7 @@ import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import Lottie from "lottie-react";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import FoindaCard from "@/components/FoindaCard";
 
 interface HeroVisualProps {
   moneyImageSrc?: string;
@@ -72,27 +73,9 @@ export default function HeroVisual({
           }}
           viewport={{ once: true, amount: 0.4 }}
         >
-          <Image
-            src={moneyImageSrc}
-            alt="Human illustration"
-            width={700}
-            height={700}
-            className="object-contain drop-shadow-2xl"
-            priority
-          />
+          <FoindaCard/>
 
-          {/* Foinda Pay Tag */}
-          <motion.div
-            className="absolute bottom-[20px] right-0"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-            viewport={{ once: true, amount: 0.4 }}
-          >
-            <div className="px-5 py-2 rounded-xl bg-gradient-to-r from-orange-500 to-[#4e80ca] shadow-lg text-white font-semibold">
-              Foinda Pay
-            </div>
-          </motion.div>
+          
         </motion.div>
       </div>
     </div>

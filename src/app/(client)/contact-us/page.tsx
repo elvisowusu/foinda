@@ -2,61 +2,67 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Mail, Phone, MapPin, Clock, Send, HelpCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Send, HelpCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const contactInfo = [
-  {
-    icon: <Mail className="w-6 h-6 text-orange-500" />,
-    title: "Email Support",
-    details: ["support@foinda.com", "partnerships@foinda.com"],
-    description: "Get help with your account or business inquiries"
-  },
-  {
-    icon: <Phone className="w-6 h-6 text-orange-500" />,
-    title: "Phone Support",
-    details: ["+233 20 123 4567", "+234 1 234 5678"],
-    description: "Speak directly with our support team"
-  },
-  {
-    icon: <MapPin className="w-6 h-6 text-orange-500" />,
-    title: "Office Locations",
-    details: ["Accra, Ghana", "Lagos, Nigeria"],
-    description: "Visit us at our regional offices"
-  },
-  {
-    icon: <Clock className="w-6 h-6 text-orange-500" />,
-    title: "Business Hours",
-    details: ["Mon-Fri: 8AM-6PM GMT", "Sat: 9AM-2PM GMT"],
-    description: "We're here to help during business hours"
-  }
-];
+// const contactInfo = [
+//   {
+//     icon: <Mail className="w-6 h-6 text-orange-500" />,
+//     title: "Email Support",
+//     details: ["admin@foinda.com", "partnerships@foinda.com"],
+//     description: "Get help with your account or business inquiries"
+//   },
+//   {
+//     icon: <Phone className="w-6 h-6 text-orange-500" />,
+//     title: "Phone Support",
+//     details: ["+233 20 123 4567", "+234 1 234 5678"],
+//     description: "Speak directly with our support team"
+//   },
+//   {
+//     icon: <MapPin className="w-6 h-6 text-orange-500" />,
+//     title: "Office Locations",
+//     details: ["Accra, Ghana", "Lagos, Nigeria"],
+//     description: "Visit us at our regional offices"
+//   },
+//   {
+//     icon: <Clock className="w-6 h-6 text-orange-500" />,
+//     title: "Business Hours",
+//     details: ["Mon-Fri: 8AM-6PM GMT", "Sat: 9AM-2PM GMT"],
+//     description: "We're here to help during business hours"
+//   }
+// ];
 
 const faqs = [
   {
     question: "How do I create a Foinda wallet?",
-    answer: "Creating a Foinda wallet is simple. Click 'Get Started' on our homepage, provide your basic information, verify your identity, and you'll be ready to receive payments in minutes."
+    answer:
+      "Creating a Foinda wallet is simple. Click 'Get Started' on our homepage, provide your basic information, verify your identity, and you'll be ready to receive payments in minutes.",
   },
   {
     question: "What payment methods do you support?",
-    answer: "We support mobile money (MoMo), bank cards, digital wallets, and USSD across Ghana, Nigeria, Kenya, and other African countries. We also support international payments."
+    answer:
+      "We support mobile money (MoMo), bank cards, digital wallets, and USSD across Ghana, Nigeria, Kenya, and other African countries. We also support international payments.",
   },
   {
     question: "How quickly can I receive payments?",
-    answer: "Most payments are processed instantly. Cross-border payments typically arrive within 1-2 business days, depending on the destination country and payment method."
+    answer:
+      "Most payments are processed instantly. Cross-border payments typically arrive within 1-2 business days, depending on the destination country and payment method.",
   },
   {
     question: "What are your fees?",
-    answer: "Our fees are transparent and competitive. Domestic payments are free, while cross-border payments have a small fee that varies by destination. Check our pricing page for detailed information."
+    answer:
+      "Our fees are transparent and competitive. Domestic payments are free, while cross-border payments have a small fee that varies by destination. Check our pricing page for detailed information.",
   },
   {
     question: "Is my money safe with Foinda?",
-    answer: "Yes, we're fully licensed and regulated. Your funds are held in segregated accounts with partner banks, and we use bank-grade security to protect your information."
+    answer:
+      "Yes, we're fully licensed and regulated. Your funds are held in segregated accounts with partner banks, and we use bank-grade security to protect your information.",
   },
   {
     question: "Can I use Foinda for my business?",
-    answer: "Absolutely! Foinda offers business accounts with additional features like team management, detailed reporting, and API access for integration with your existing systems."
-  }
+    answer:
+      "Absolutely! Foinda offers business accounts with additional features like team management, detailed reporting, and API access for integration with your existing systems.",
+  },
 ];
 
 export default function ContactUs() {
@@ -65,7 +71,7 @@ export default function ContactUs() {
     email: "",
     subject: "",
     message: "",
-    type: "general"
+    type: "general",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -73,13 +79,23 @@ export default function ContactUs() {
     // Handle form submission here
     console.log("Form submitted:", formData);
     // Reset form
-    setFormData({ name: "", email: "", subject: "", message: "", type: "general" });
+    setFormData({
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+      type: "general",
+    });
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -98,7 +114,7 @@ export default function ContactUs() {
               Get in <span className="text-orange-500">Touch</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Have questions about Foinda? Need help with your account? 
+              Have questions about Foinda? Need help with your account?
               We&apos;re here to help you succeed.
             </p>
           </motion.div>
@@ -106,7 +122,7 @@ export default function ContactUs() {
       </section>
 
       {/* Contact Info Grid */}
-      <section className="py-16 px-6">
+      {/* <section className="py-16 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {contactInfo.map((info, index) => (
@@ -132,7 +148,7 @@ export default function ContactUs() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Contact Form & Map */}
       <section className="py-16 px-6 bg-gradient-to-b from-[#F97316]/5 to-[#74CBE3]/5">
@@ -149,7 +165,10 @@ export default function ContactUs() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
                       Full Name
                     </label>
                     <input
@@ -164,7 +183,10 @@ export default function ContactUs() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
                       Email Address
                     </label>
                     <input
@@ -181,7 +203,10 @@ export default function ContactUs() {
                 </div>
 
                 <div>
-                  <label htmlFor="type" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="type"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Inquiry Type
                   </label>
                   <select
@@ -199,7 +224,10 @@ export default function ContactUs() {
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="subject"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Subject
                   </label>
                   <input
@@ -215,7 +243,10 @@ export default function ContactUs() {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Message
                   </label>
                   <textarea
@@ -269,7 +300,9 @@ export default function ContactUs() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Frequently Asked Questions
+            </h2>
             <p className="text-lg text-gray-600">
               Quick answers to common questions about Foinda
             </p>
@@ -313,14 +346,15 @@ export default function ContactUs() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="mailto:support@foinda.com"
+                href="mailto:admin@foinda.com"
                 className="bg-orange-500 text-white px-8 py-3 rounded-lg font-medium hover:bg-orange-600 transition flex items-center justify-center gap-2"
               >
                 <Mail className="w-5 h-5" />
                 Email Support
               </a>
+
               <a
-                href="tel:+233201234567"
+                href="tel:+233546028860"
                 className="border border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white hover:text-[#1B2A41] transition flex items-center justify-center gap-2"
               >
                 <Phone className="w-5 h-5" />

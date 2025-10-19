@@ -13,11 +13,12 @@ export default function Main() {
     {/* === Section 1: Wallet Intro === */}
     {/* <WalletIntro /> */}
     
+    {/* === Section 3: Identity Layer === */}
+    <IdentityLayer />
+    
     {/* === Section 2: Financial Layer (Merged CrossBorderPower + FoindaAdvance) === */}
     <FinancialLayer />
     
-    {/* === Section 3: Identity Layer === */}
-    <IdentityLayer />
     
     {/* === Section 4: Store & Growth Layer === */}
     <StoreGrowthLayer />

@@ -65,8 +65,8 @@ export default function IdentityLayer() {
         {/* Header */}
         <motion.div {...fadeUp()} className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-            One ID to Rule Your{" "}
-            <span className="text-orange-500">Creative World</span>
+            <span className="text-orange-500">Foinda ID</span>One ID to Rule
+            Your <span className="text-orange-500">Creative World</span>
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Connect all your social accounts once. Foinda ID verifies your
@@ -77,7 +77,10 @@ export default function IdentityLayer() {
         {/* Main Content */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-20 overflow-hidden">
           {/* ID Card */}
-          <motion.div {...slide("left")} className="relative flex justify-center w-full overflow-hidden">
+          <motion.div
+            {...slide("left")}
+            className="relative flex justify-center w-full overflow-hidden"
+          >
             <div className="relative w-full max-w-sm sm:max-w-md overflow-hidden">
               <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
@@ -93,7 +96,9 @@ export default function IdentityLayer() {
                       F
                     </div>
                     <div>
-                      <h3 className="text-lg sm:text-xl font-bold">Foinda ID</h3>
+                      <h3 className="text-lg sm:text-xl font-bold">
+                        Foinda ID
+                      </h3>
                       <p className="text-xs sm:text-sm text-gray-300">
                         Verified Creator
                       </p>
@@ -209,7 +214,9 @@ export default function IdentityLayer() {
               <div className="text-3xl sm:text-4xl font-bold text-orange-500 mb-2">
                 {s.number}
               </div>
-              <div className="text-gray-600 text-sm sm:text-base">{s.label}</div>
+              <div className="text-gray-600 text-sm sm:text-base">
+                {s.label}
+              </div>
             </div>
           ))}
         </motion.div>

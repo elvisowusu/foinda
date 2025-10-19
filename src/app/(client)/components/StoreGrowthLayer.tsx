@@ -144,7 +144,7 @@ export default function StoreGrowthLayer() {
           className="text-center mb-14 sm:mb-20"
         >
           <h2 className="text-3xl sm:text-5xl font-bold mb-4 sm:mb-6">
-            <span className="text-orange-500">Store Front</span>-Turn Followers Into a{" "}
+            <span className="text-orange-500">Storefront</span> - Turn Followers Into a{" "}
             <span className="text-orange-500">Business</span>
           </h2>
           <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">

@@ -183,7 +183,7 @@ export default function FinancialLayer() {
         </div>
 
         {/* Features Grid */}
-        <motion.div
+        {/* <motion.div
           {...fadeUp(0.2)}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 overflow-hidden"
         >
@@ -201,17 +201,17 @@ export default function FinancialLayer() {
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </motion.div> */}
 
         {/* CTA Section */}
-        <motion.div {...fadeUp(0.4)} className="text-center mt-16 overflow-hidden">
+        {/* <motion.div {...fadeUp(0.4)} className="text-center mt-16 overflow-hidden">
           <Link
             href="/contact-us"
             className="inline-block bg-orange-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-orange-600 transition-colors text-lg"
           >
             See How Advance Works
           </Link>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

@@ -256,7 +256,7 @@ export default function StoreGrowthLayer() {
               </p>
             </div>
 
-            <div className="space-y-4 sm:space-y-6">
+            {/* <div className="space-y-4 sm:space-y-6">
               {growthFeatures.map((feature, i) => {
                 const Icon = feature.icon;
                 return (
@@ -283,7 +283,7 @@ export default function StoreGrowthLayer() {
                   </motion.div>
                 );
               })}
-            </div>
+            </div> */}
           </motion.div>
         </div>
 

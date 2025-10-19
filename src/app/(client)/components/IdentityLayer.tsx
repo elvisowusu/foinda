@@ -167,7 +167,7 @@ export default function IdentityLayer() {
               </p>
             </div>
 
-            <div className="space-y-6 ">
+            {/* <div className="space-y-6 ">
               {identityFeatures.map((feature, i) => (
                 <motion.div
                   key={i}
@@ -185,7 +185,7 @@ export default function IdentityLayer() {
                   </div>
                 </motion.div>
               ))}
-            </div>
+            </div> */}
 
             <motion.div {...fadeUp(0.4)}>
               <button className="bg-orange-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-orange-600 transition-colors text-base sm:text-lg flex items-center gap-2">

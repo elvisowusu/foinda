@@ -121,7 +121,7 @@ export default function TrustNetworkLayer() {
             </div>
 
             {/* Features List */}
-            <div className="space-y-6">
+            {/* <div className="space-y-6">
               {networkFeatures.map((feature, i) => {
                 const Icon = feature.icon;
                 return (
@@ -146,7 +146,7 @@ export default function TrustNetworkLayer() {
                   </motion.div>
                 );
               })}
-            </div>
+            </div> */}
 
             {/* CTA */}
             <motion.div

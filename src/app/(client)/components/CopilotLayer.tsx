@@ -228,7 +228,7 @@ export default function CopilotLayer() {
               </p>
             </div>
 
-            <div className="space-y-6">
+            {/* <div className="space-y-6">
               {copilotFeatures.map((feature, index: number) => (
                 <motion.div
                   key={index}
@@ -249,7 +249,7 @@ export default function CopilotLayer() {
                   </div>
                 </motion.div>
               ))}
-            </div>
+            </div> */}
 
             <motion.div
               variants={fadeChild(4)}

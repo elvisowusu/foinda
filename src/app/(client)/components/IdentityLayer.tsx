@@ -1,31 +1,31 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Link as LinkIcon, Shield, CheckCircle, Users } from "lucide-react";
+import { Link as LinkIcon, CheckCircle } from "lucide-react";
 
 // 🌟 Data Arrays (all grouped at top)
-const identityFeatures = [
-  {
-    icon: <Shield className="w-6 h-6 text-orange-500" />,
-    title: "Verified Identity",
-    description: "One-time verification unlocks all Foinda features.",
-  },
-  {
-    icon: <LinkIcon className="w-6 h-6 text-orange-500" />,
-    title: "Account Linking",
-    description: "Connect YouTube, TikTok, Instagram seamlessly.",
-  },
-  {
-    icon: <CheckCircle className="w-6 h-6 text-orange-500" />,
-    title: "Earnings Verification",
-    description: "Automatic income tracking across platforms.",
-  },
-  {
-    icon: <Users className="w-6 h-6 text-orange-500" />,
-    title: "Creator Network",
-    description: "Join verified creators building together.",
-  },
-];
+// const identityFeatures = [
+//   {
+//     icon: <Shield className="w-6 h-6 text-orange-500" />,
+//     title: "Verified Identity",
+//     description: "One-time verification unlocks all Foinda features.",
+//   },
+//   {
+//     icon: <LinkIcon className="w-6 h-6 text-orange-500" />,
+//     title: "Account Linking",
+//     description: "Connect YouTube, TikTok, Instagram seamlessly.",
+//   },
+//   {
+//     icon: <CheckCircle className="w-6 h-6 text-orange-500" />,
+//     title: "Earnings Verification",
+//     description: "Automatic income tracking across platforms.",
+//   },
+//   {
+//     icon: <Users className="w-6 h-6 text-orange-500" />,
+//     title: "Creator Network",
+//     description: "Join verified creators building together.",
+//   },
+// ];
 
 const linkedAccounts = [
   { name: "YouTube", icon: "YT", color: "bg-red-500" },

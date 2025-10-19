@@ -1,39 +1,31 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  MessageCircle,
-  Bot,
-  TrendingUp,
-  DollarSign,
-  Users,
-  Zap,
-  Send,
-} from "lucide-react";
+import { MessageCircle, Bot, Send } from "lucide-react";
 
 /* ----------------------------- CENTRALIZED ARRAYS ----------------------------- */
-const copilotFeatures = [
-  {
-    icon: <TrendingUp className="w-6 h-6 text-orange-500" />,
-    title: "Growth Analytics",
-    description: "AI-powered insights on your content performance",
-  },
-  {
-    icon: <DollarSign className="w-6 h-6 text-orange-500" />,
-    title: "Revenue Optimization",
-    description: "Smart suggestions to maximize your earnings",
-  },
-  {
-    icon: <Users className="w-6 h-6 text-orange-500" />,
-    title: "Audience Insights",
-    description: "Understand your followers better than ever",
-  },
-  {
-    icon: <Zap className="w-6 h-6 text-orange-500" />,
-    title: "Action Plans",
-    description: "Daily tasks tailored to your growth goals",
-  },
-];
+// const copilotFeatures = [
+//   {
+//     icon: <TrendingUp className="w-6 h-6 text-orange-500" />,
+//     title: "Growth Analytics",
+//     description: "AI-powered insights on your content performance",
+//   },
+//   {
+//     icon: <DollarSign className="w-6 h-6 text-orange-500" />,
+//     title: "Revenue Optimization",
+//     description: "Smart suggestions to maximize your earnings",
+//   },
+//   {
+//     icon: <Users className="w-6 h-6 text-orange-500" />,
+//     title: "Audience Insights",
+//     description: "Understand your followers better than ever",
+//   },
+//   {
+//     icon: <Zap className="w-6 h-6 text-orange-500" />,
+//     title: "Action Plans",
+//     description: "Daily tasks tailored to your growth goals",
+//   },
+// ];
 
 const sampleMessages = [
   {

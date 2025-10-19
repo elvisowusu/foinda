@@ -1,5 +1,5 @@
 import React from "react";
-import WalletIntro from "../components/WalletIntro";
+// import WalletIntro from "../components/WalletIntro";
 import FinancialLayer from "../components/FinancialLayer";
 import IdentityLayer from "../components/IdentityLayer";
 import StoreGrowthLayer from "../components/StoreGrowthLayer";

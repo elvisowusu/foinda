@@ -1,43 +1,43 @@
 "use client";
 
-import Link from "next/link";
+// import Link from "next/link";
 import { motion } from "framer-motion";
-import {
-  DollarSign,
-  BarChart,
-  FileText,
-  Repeat,
-  CreditCard,
-  ShieldCheck,
-} from "lucide-react";
+// import {
+//   DollarSign,
+//   BarChart,
+//   FileText,
+//   Repeat,
+//   CreditCard,
+//   ShieldCheck,
+// } from "lucide-react";
 
 // 💡 Data Arrays (kept at the top)
-const financialFeatures = [
-  {
-    icon: <Repeat size={18} className="text-[#FCD34D] flex-shrink-0" />,
-    text: "Real-time FX conversion with transparent rates",
-  },
-  {
-    icon: <CreditCard size={18} className="text-[#FCD34D] flex-shrink-0" />,
-    text: "Withdraw to MoMo or any local bank instantly",
-  },
-  {
-    icon: <ShieldCheck size={18} className="text-[#FCD34D] flex-shrink-0" />,
-    text: "Secure transactions with multi-rail compliance",
-  },
-  {
-    icon: <DollarSign size={18} className="text-[#FCD34D] flex-shrink-0" />,
-    text: "Instant advance based on your monthly revenue",
-  },
-  {
-    icon: <BarChart size={18} className="text-[#FCD34D] flex-shrink-0" />,
-    text: "Automatic repayment from future income",
-  },
-  {
-    icon: <FileText size={18} className="text-[#FCD34D] flex-shrink-0" />,
-    text: "Escrow-linked payouts for brand deals",
-  },
-];
+// const financialFeatures = [
+//   {
+//     icon: <Repeat size={18} className="text-[#FCD34D] flex-shrink-0" />,
+//     text: "Real-time FX conversion with transparent rates",
+//   },
+//   {
+//     icon: <CreditCard size={18} className="text-[#FCD34D] flex-shrink-0" />,
+//     text: "Withdraw to MoMo or any local bank instantly",
+//   },
+//   {
+//     icon: <ShieldCheck size={18} className="text-[#FCD34D] flex-shrink-0" />,
+//     text: "Secure transactions with multi-rail compliance",
+//   },
+//   {
+//     icon: <DollarSign size={18} className="text-[#FCD34D] flex-shrink-0" />,
+//     text: "Instant advance based on your monthly revenue",
+//   },
+//   {
+//     icon: <BarChart size={18} className="text-[#FCD34D] flex-shrink-0" />,
+//     text: "Automatic repayment from future income",
+//   },
+//   {
+//     icon: <FileText size={18} className="text-[#FCD34D] flex-shrink-0" />,
+//     text: "Escrow-linked payouts for brand deals",
+//   },
+// ];
 
 // 💡 Reusable Animation Settings
 const fadeUp = (delay = 0) => ({

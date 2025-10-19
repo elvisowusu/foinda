@@ -65,7 +65,7 @@ export default function IdentityLayer() {
         {/* Header */}
         <motion.div {...fadeUp()} className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-            <span className="text-orange-500">Foinda ID</span>One ID to Rule
+            <span className="text-orange-500">Foinda ID</span>-One ID to Rule
             Your <span className="text-orange-500">Creative World</span>
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">

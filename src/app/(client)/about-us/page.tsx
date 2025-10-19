@@ -1,428 +1,361 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, MotionProps } from "framer-motion";
 import Image from "next/image";
-import { Heart, Globe, Award, Zap } from "lucide-react";
-import { images } from "@/lib/images";
+import {
+  Mail,
+  Globe,
+  Zap,
+  Heart,
+  Award,
+  CreditCard,
+  UserCheck,
+  BarChart,
+} from "lucide-react";
 import { useRouter } from "next/navigation";
+import React from "react";
+import { images } from "@/lib/images";
 
-const stats = [
-  { number: "10K+", label: "Active Creators" },
-  { number: "$2M+", label: "Processed Payments" },
-  { number: "50+", label: "Countries Supported" },
-  { number: "99.9%", label: "Uptime" },
+// -------------------- Types -------------------- //
+interface MotionDivProps extends MotionProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+interface SectionTitleProps {
+  children: React.ReactNode;
+}
+
+interface IconWrapperProps {
+  icon: React.ReactNode;
+}
+
+interface CardProps {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}
+
+interface ContactInfoProps {
+  icon: React.ReactNode;
+  text: string;
+}
+
+// -------------------- Reusable Components -------------------- //
+const MotionDiv: React.FC<MotionDivProps> = ({
+  children,
+  className = "",
+  ...props
+}) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+    viewport={{ once: true }}
+    className={className}
+    {...props}
+  >
+    {children}
+  </motion.div>
+);
+
+const SectionTitle: React.FC<SectionTitleProps> = ({ children }) => (
+  <motion.h2
+    className="text-4xl font-bold mb-12 text-center text-orange-500"
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+  >
+    {children}
+  </motion.h2>
+);
+
+const IconWrapper: React.FC<IconWrapperProps> = ({ icon }) => (
+  <div className="w-8 h-8 text-orange-500 mx-auto mb-3">{icon}</div>
+);
+
+const Card: React.FC<CardProps> = ({ icon, title, description }) => (
+  <motion.div
+    className="bg-white p-6 rounded-2xl shadow-lg text-center"
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6 }}
+  >
+    <IconWrapper icon={icon} />
+    <h3 className="text-xl font-semibold mb-3">{title}</h3>
+    <p className="text-gray-600">{description}</p>
+  </motion.div>
+);
+
+const ContactInfo: React.FC<ContactInfoProps> = ({ icon, text }) => (
+  <p className="flex items-center gap-2 text-lg text-gray-600">
+    {icon} {text}
+  </p>
+);
+
+// -------------------- Data -------------------- //
+const coreValues: CardProps[] = [
+  {
+    icon: <Heart />,
+    title: "Empowerment",
+    description:
+      "We enable creators to take control of their financial journey.",
+  },
+  {
+    icon: <Globe />,
+    title: "Trust & Transparency",
+    description:
+      "We build financial tools that creators can rely on and understand.",
+  },
+  {
+    icon: <Zap />,
+    title: "Innovation with Purpose",
+    description: "Every solution we build is designed to solve real problems.",
+  },
+  {
+    icon: <Award />,
+    title: "Inclusion & Access",
+    description:
+      "Financial services should be available to all creators, everywhere.",
+  },
+  {
+    icon: <UserCheck />,
+    title: "Ownership & Protection",
+    description: "Creators’ work and earnings are always theirs to control.",
+  },
+  {
+    icon: <BarChart />,
+    title: "Collaboration for Growth",
+    description: "We believe in growing together with the creative community.",
+  },
 ];
 
-const values = [
+const products: CardProps[] = [
   {
-    icon: <Heart className="w-8 h-8 text-orange-500" />,
-    title: "Creator-First",
+    icon: <CreditCard />,
+    title: "Foinda Pay",
     description:
-      "Every feature we build starts with understanding creator needs and pain points.",
+      "Send, receive, and split revenue seamlessly across mobile money, cards, and wallets.",
   },
   {
-    icon: <Globe className="w-8 h-8 text-orange-500" />,
-    title: "Borderless",
-    description:
-      "We believe creativity shouldn't be limited by geography or payment systems.",
+    icon: <Zap />,
+    title: "Foinda Advance",
+    description: "Revenue-based financing for milestone-based project funding.",
   },
   {
-    icon: <Zap className="w-8 h-8 text-orange-500" />,
-    title: "Fast & Reliable",
+    icon: <UserCheck />,
+    title: "Foinda ID",
     description:
-      "Speed and reliability are non-negotiable when it comes to your money.",
+      "Digital trust and identity system to help creators build verified reputations.",
   },
   {
-    icon: <Award className="w-8 h-8 text-orange-500" />,
-    title: "Excellence",
+    icon: <BarChart />,
+    title: "Foinda Network",
     description:
-      "We strive for excellence in everything we do, from code to customer support.",
+      "Dashboard with insights, analytics, and growth tools for creators.",
   },
 ];
 
-const team = [
-  {
-    name: "Kwame Asante",
-    role: "CEO & Co-Founder",
-    image: "/human1.png",
-    bio: "Former fintech executive with 10+ years building payment solutions across Africa.",
-  },
-  {
-    name: "Aisha Okafor",
-    role: "CTO & Co-Founder",
-    image: "/human1.png",
-    bio: "Tech leader passionate about using technology to solve real-world problems.",
-  },
-  {
-    name: "David Kimani",
-    role: "Head of Product",
-    image: "/human1.png",
-    bio: "Product strategist focused on creating intuitive experiences for creators.",
-  },
-];
-
-export default function AboutUs() {
+// -------------------- Main Component -------------------- //
+const AboutUs: React.FC = () => {
   const router = useRouter();
 
   return (
     <main className="bg-white text-[#1B2A41] overflow-x-hidden">
-      {/* Hero Section with Animation */}
-      <section className="relative py-24 px-6 bg-gradient-to-b from-white via-[#F97316]/5 to-[#74CBE3]/10 overflow-hidden">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Left Side - Content */}
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                Empowering African{" "}
-                <span className="text-orange-500">Creators</span>
-              </h1>
-              <p className="text-xl text-gray-600 leading-relaxed mb-8">
-                We&apos;re building the financial infrastructure that African
-                creators, freelancers, and digital entrepreneurs need to thrive
-                in the global economy.
-              </p>
-              <p className="text-lg text-gray-600 leading-relaxed mb-8">
-                From creativity to income — all in one platform. Foinda helps
-                African creators get paid, protect their work, and grow smarter.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-orange-500 cursor-pointer text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-600 transition">
-                  Create Your Foinda ID
-                </button>
-                <button className="border cursor-pointer border-orange-500 text-orange-500 px-8 py-3 rounded-lg font-semibold hover:bg-orange-50 transition">
-                  Watch How It Works 🎥
-                </button>
-              </div>
-            </motion.div>
-
-            {/* Right Side - Foinda Animation */}
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="relative flex justify-center"
-            >
-              <div className="relative w-full max-w-md">
-                {/* Main Foinda Animation Container */}
-                <div className="relative bg-gradient-to-br from-[#1B2A41] to-[#0F1A2B] rounded-3xl p-8 text-white overflow-hidden">
-                  {/* Floating Creator Handles */}
-                  <div className="absolute inset-0 overflow-hidden">
-                    {[...Array(6)].map((_, i) => (
-                      <motion.div
-                        key={i}
-                        className="absolute w-16 h-16 bg-white/10 rounded-full flex items-center justify-center text-xs font-semibold"
-                        style={{
-                          left: `${10 + i * 15}%`,
-                          top: `${20 + (i % 2) * 30}%`,
-                        }}
-                        animate={{
-                          y: [-10, 10, -10],
-                          rotate: [0, 5, -5, 0],
-                        }}
-                        transition={{
-                          duration: 3 + i * 0.5,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                        }}
-                      >
-                        {i % 3 === 0 ? "YT" : i % 3 === 1 ? "TT" : "IG"}
-                      </motion.div>
-                    ))}
-                  </div>
-
-                  {/* Central Foinda ID Card */}
-                  <motion.div
-                    initial={{ scale: 0.8, opacity: 0 }}
-                    whileInView={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 1, delay: 0.5 }}
-                    viewport={{ once: true }}
-                    className="relative z-10 bg-gradient-to-r from-orange-500 to-[#4e80ca] rounded-2xl p-6 text-center"
-                  >
-                    <div className="w-16 h-16 bg-white rounded-full mx-auto mb-4 flex items-center justify-center">
-                      <span className="text-2xl font-bold text-orange-500">
-                        F
-                      </span>
-                    </div>
-                    <h3 className="text-xl font-bold mb-2">Foinda ID</h3>
-                    <p className="text-sm opacity-90 mb-4">Verified Creator</p>
-
-                    {/* Connected Accounts */}
-                    <div className="flex justify-center gap-3">
-                      <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-xs">
-                        YT
-                      </div>
-                      <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-xs">
-                        TT
-                      </div>
-                      <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-xs">
-                        IG
-                      </div>
-                    </div>
-                  </motion.div>
-
-                  {/* Glowing Connections */}
-                  <div className="absolute inset-0 pointer-events-none">
-                    {[...Array(3)].map((_, i) => (
-                      <motion.div
-                        key={i}
-                        className="absolute w-1 h-1 bg-orange-500 rounded-full"
-                        style={{
-                          left: `${30 + i * 20}%`,
-                          top: `${40 + i * 10}%`,
-                        }}
-                        animate={{
-                          scale: [1, 2, 1],
-                          opacity: [0.5, 1, 0.5],
-                        }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          delay: i * 0.3,
-                        }}
-                      />
-                    ))}
-                  </div>
-                </div>
-
-                {/* Background Particles */}
-                <div className="absolute inset-0 -z-10">
-                  {[
-                    { left: 10, top: 20, duration: 4, delay: 0 },
-                    { left: 25, top: 15, duration: 5, delay: 0.5 },
-                    { left: 40, top: 30, duration: 4.5, delay: 1 },
-                    { left: 60, top: 25, duration: 5.5, delay: 1.5 },
-                    { left: 75, top: 40, duration: 4, delay: 2 },
-                    { left: 85, top: 15, duration: 5, delay: 0.3 },
-                    { left: 15, top: 60, duration: 4.5, delay: 1.2 },
-                    { left: 35, top: 70, duration: 5, delay: 0.8 },
-                    { left: 55, top: 80, duration: 4, delay: 1.8 },
-                    { left: 80, top: 75, duration: 5.5, delay: 0.2 },
-                    { left: 20, top: 85, duration: 4.5, delay: 1.5 },
-                    { left: 45, top: 10, duration: 5, delay: 0.7 },
-                    { left: 70, top: 50, duration: 4, delay: 1.3 },
-                    { left: 90, top: 65, duration: 5, delay: 0.9 },
-                    { left: 5, top: 45, duration: 4.5, delay: 1.7 },
-                    { left: 30, top: 35, duration: 5, delay: 0.4 },
-                    { left: 65, top: 5, duration: 4, delay: 1.1 },
-                    { left: 95, top: 35, duration: 5.5, delay: 0.6 },
-                    { left: 50, top: 55, duration: 4.5, delay: 1.4 },
-                    { left: 12, top: 75, duration: 5, delay: 0.1 },
-                  ].map((particle, i) => (
-                    <motion.div
-                      key={i}
-                      className="absolute w-1 h-1 bg-green-400 rounded-full"
-                      style={{
-                        left: `${particle.left}%`,
-                        top: `${particle.top}%`,
-                      }}
-                      animate={{
-                        y: [-20, 20, -20],
-                        opacity: [0.3, 0.8, 0.3],
-                      }}
-                      transition={{
-                        duration: particle.duration,
-                        repeat: Infinity,
-                        delay: particle.delay,
-                      }}
-                    />
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      {/* <section className="py-16 bg-[#1B2A41] text-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="text-center"
-              >
-                <div className="text-3xl md:text-4xl font-bold text-orange-500 mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-gray-300">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
-      {/* Mission Section */}
-      <section className="py-24 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Our Mission
-              </h2>
-              <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                To democratize access to financial services for African creators
-                by providing borderless payment solutions, instant funding, and
-                comprehensive financial tools that enable them to focus on what
-                they do best: creating.
-              </p>
-              <p className="text-lg text-gray-600 leading-relaxed">
-                We believe that every creator deserves access to the same
-                financial opportunities regardless of where they&apos;re
-                located, and we&apos;re building the infrastructure to make that
-                possible.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="flex justify-center"
-            >
-              <Image
-                src={images.foindaAtom}
-                alt="Mission illustration"
-                width={500}
-                height={500}
-                className="rounded-2xl shadow-2xl"
-              />
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Values Section */}
-      <section className="py-24 px-6 bg-gradient-to-b from-[#F97316]/5 to-[#74CBE3]/5">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Values</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              These principles guide everything we do at Foinda
+      {/* Hero Section */}
+      <section className="py-24 px-6 bg-gradient-to-b from-white via-[#F97316]/5 to-[#74CBE3]/10">
+        <div className="max-w-7xl mx-auto text-center">
+          <MotionDiv>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 ">
+              <span className="text-orange-500">Foinda</span> – Powering
+              Africa’s <span className="text-orange-500">Creator Economy</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-8">
+              We empower digital creators, freelancers, and creative
+              entrepreneurs to access fair financing, seamless payments, and
+              growth tools — all in one platform.
             </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-white p-6 rounded-2xl shadow-lg text-center"
-              >
-                <div className="flex justify-center mb-4">{value.icon}</div>
-                <h3 className="text-xl font-semibold mb-3">{value.title}</h3>
-                <p className="text-gray-600">{value.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="py-24 px-6">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Meet Our Team
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              The passionate people building the future of creator finance
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {team.map((member, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-white p-6 rounded-2xl shadow-lg text-center"
-              >
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  width={150}
-                  height={150}
-                  className="rounded-full mx-auto mb-4"
-                />
-                <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
-                <p className="text-orange-500 font-medium mb-3">
-                  {member.role}
-                </p>
-                <p className="text-gray-600">{member.bio}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-24 px-6 bg-[#1B2A41] text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Ready to Join Our Mission?
-            </h2>
-            <p className="text-xl text-gray-300 mb-8">
-              Be part of the movement that&apos;s transforming how African
-              creators access financial services and grow their businesses.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
               <button
                 onClick={() => router.push("/contact-us")}
-                className="bg-orange-500 text-white px-8 py-3 rounded-lg font-medium hover:bg-orange-600 transition"
+                className="bg-orange-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-600 transition"
               >
-                Create Your Foinda ID
+                Get Started
               </button>
-
               <button
                 onClick={() => router.push("/contact-us")}
-                className="border border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white hover:text-[#1B2A41] transition"
+                className="border border-orange-500 text-orange-500 px-8 py-3 rounded-lg font-semibold hover:bg-orange-50 transition"
               >
                 Contact Us
               </button>
             </div>
-          </motion.div>
+          </MotionDiv>
         </div>
+      </section>
+
+      {/* Vision & Mission */}
+      <section className="py-24 px-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <MotionDiv>
+            <h2 className="text-4xl font-bold mb-6 text-orange-500">Vision</h2>
+            <p className="text-lg text-gray-600 mb-8">
+              Foinda envisions a connected and thriving African creator economy
+              where finance meets creativity — unlocking new markets, wealth,
+              and opportunities across the continent.
+            </p>
+            <h2 className="text-4xl font-bold mb-6 text-orange-500">Mission</h2>
+            <p className="text-lg text-gray-600">
+              Foinda’s mission is to power Africa’s creator economy through
+              smart finance, digital infrastructure, and invisible IP
+              protection.
+            </p>
+          </MotionDiv>
+          <MotionDiv className="flex justify-center">
+            <Image
+              src={images.foindaAtom}
+              alt="Vision & Mission"
+              width={500}
+              height={500}
+              className="rounded-2xl shadow-2xl"
+            />
+          </MotionDiv>
+        </div>
+      </section>
+
+      {/* Core Values */}
+      <section className="py-24 px-6 bg-gradient-to-b from-[#F97316]/5 to-[#74CBE3]/5">
+        <div className="max-w-7xl mx-auto">
+          <SectionTitle>Core Values</SectionTitle>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {coreValues.map((val) => (
+              <Card key={val.title} {...val} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Problem & Opportunity */}
+      <section className="py-24 px-6 max-w-7xl mx-auto">
+        <MotionDiv>
+          <h2 className="text-4xl font-bold mb-6 text-center text-orange-500">
+            Problem & Opportunity
+          </h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto text-center">
+            Across Africa, millions of creators generate value, shaping culture
+            but remain excluded from traditional finance and business tools.
+            Payments are fragmented, funding is scarce, and many creators
+            struggle to scale beyond social platforms. Foinda bridges this gap
+            by offering a reliable financial infrastructure tailored for the
+            creator economy.
+          </p>
+        </MotionDiv>
+      </section>
+
+      {/* Core Products */}
+      <section className="py-24 px-6 bg-gradient-to-b from-white to-[#F3F7FB]">
+        <div className="max-w-7xl mx-auto">
+          <SectionTitle>Core Products</SectionTitle>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {products.map((prod) => (
+              <Card key={prod.title} {...prod} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Current Stage / Progress */}
+      <section className="py-24 px-6 max-w-7xl mx-auto">
+        <MotionDiv>
+          <h2 className="text-4xl font-bold mb-6 text-center text-orange-500">
+            Current Stage / Progress
+          </h2>
+          <ul className="list-disc list-inside text-gray-600 max-w-3xl mx-auto space-y-4">
+            <li>
+              Applying for Ghana Startup Awards (GISA 2025) to gain national
+              recognition for creator-focused financial innovation.
+            </li>
+            <li>
+              Building prototype features, securing partnerships with payment
+              providers, and engaging creative communities across Ghana and
+              Nigeria for pilot testing.
+            </li>
+          </ul>
+
+          <h3 className="text-2xl font-semibold mt-12 mb-4">2025 Focus</h3>
+          <ul className="list-disc list-inside text-gray-600 space-y-2">
+            <li>
+              Integrating APIs from Paystack, Flutterwave, MoMo, and Coinbase
+              for multi-currency and crypto-compatible transactions.
+            </li>
+            <li>Testing Foinda Pay and Foinda Advance with early creators.</li>
+            <li>
+              Developing Foinda ID integrations for verified global creator
+              verification.
+            </li>
+            <li>
+              Building a community network for early adopters and co-creators.
+            </li>
+          </ul>
+        </MotionDiv>
+      </section>
+
+      {/* Our Uniqueness */}
+      <section className="py-24 px-6 bg-gradient-to-b from-[#F97316]/5 to-[#74CBE3]/5">
+        <div className="max-w-7xl mx-auto">
+          <SectionTitle>Our Uniqueness</SectionTitle>
+          <ul className="list-disc list-inside text-gray-600 max-w-3xl mx-auto space-y-4">
+            <li>
+              Purpose-built for Africa’s creator economy: designed specifically
+              for creators, freelancers, and creative entrepreneurs in Africa.
+            </li>
+            <li>
+              Blending trust, tech & culture: merging fintech innovation,
+              blockchain identity, and African-inspired trust systems.
+            </li>
+            <li>
+              From vision to infrastructure: clarity of mission, community-first
+              design, and technical foundation position Foinda as the backbone
+              of Africa’s emerging creative economy.
+            </li>
+          </ul>
+
+          <h3 className="text-2xl font-semibold mt-12 mb-4 text-center">
+            🤝 Collaborations & Support
+          </h3>
+          <p className="text-gray-600 max-w-3xl mx-auto text-center">
+            We’re open to collaborations, ecosystem partners, and early
+            supporters who share our vision of building a sustainable financial
+            system for Africa’s creators.
+          </p>
+        </div>
+      </section>
+
+      {/* Contact Info */}
+      <section className="py-24 px-6 max-w-7xl mx-auto text-center">
+        <SectionTitle>Contact Us</SectionTitle>
+        <div className="flex flex-col md:flex-row justify-center items-center gap-6">
+          <ContactInfo
+            icon={<Mail className="w-6 h-6 text-orange-500" />}
+            text="foinda.africa@gmail.com"
+          />
+          <ContactInfo
+            icon={<UserCheck className="w-6 h-6 text-orange-500" />}
+            text="Founder: Mark Chukwuebuka"
+          />
+          <ContactInfo
+            icon={<Globe className="w-6 h-6 text-orange-500" />}
+            text="Country: Ghana"
+          />
+        </div>
+        <button
+          onClick={() => router.push("/contact-us")}
+          className="mt-6 bg-orange-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-600 transition"
+        >
+          Reach Out
+        </button>
       </section>
     </main>
   );
-}
+};
+
+export default AboutUs;

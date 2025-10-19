@@ -3,7 +3,16 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+  Youtube,
+} from "lucide-react";
 
 /* -------------------- ARRAYS AT TOP -------------------- */
 const footerSections = [
@@ -17,7 +26,7 @@ const footerSections = [
       { text: "Team", link: "/about-us" },
       // { text: "Careers", link: "/careers" },
       // { text: "Press", link: "/press" }
-    ]
+    ],
   },
   // {
   //   title: "Product",
@@ -47,29 +56,49 @@ const footerSections = [
       // { text: "API Docs", link: "/docs" },
       { text: "Status", link: "/status" },
       // { text: "Security", link: "/security" }
-    ]
-  }
+    ],
+  },
 ];
 
 const socialLinks = [
-  { icon: <Facebook className="w-5 h-5" />, link: "https://facebook.com/foinda", label: "Facebook" },
-  { icon: <Twitter className="w-5 h-5" />, link: "https://twitter.com/foinda", label: "Twitter" },
-  { icon: <Instagram className="w-5 h-5" />, link: "https://instagram.com/foinda", label: "Instagram" },
-  { icon: <Linkedin className="w-5 h-5" />, link: "https://linkedin.com/company/foinda", label: "LinkedIn" },
-  { icon: <Youtube className="w-5 h-5" />, link: "https://youtube.com/foinda", label: "YouTube" }
+  {
+    icon: <Facebook className="w-5 h-5" />,
+    link: "https://facebook.com/foinda",
+    label: "Facebook",
+  },
+  {
+    icon: <Twitter className="w-5 h-5" />,
+    link: "https://twitter.com/foinda",
+    label: "Twitter",
+  },
+  {
+    icon: <Instagram className="w-5 h-5" />,
+    link: "https://instagram.com/foinda",
+    label: "Instagram",
+  },
+  {
+    icon: <Linkedin className="w-5 h-5" />,
+    link: "https://linkedin.com/company/foinda",
+    label: "LinkedIn",
+  },
+  {
+    icon: <Youtube className="w-5 h-5" />,
+    link: "https://youtube.com/foinda",
+    label: "YouTube",
+  },
 ];
 
 const contactInfo = [
-  { icon: <Mail className="w-4 h-4" />, text: "support@foinda.com" },
-  { icon: <Phone className="w-4 h-4" />, text: "+233 20 123 4567" },
-  { icon: <MapPin className="w-4 h-4" />, text: "Accra, Ghana" }
+  { icon: <Mail className="w-4 h-4" />, text: "admin@foinda.com" },
+  { icon: <Phone className="w-4 h-4" />, text: "+233 54 602 8860" },
+  { icon: <MapPin className="w-4 h-4" />, text: "Accra, Ghana" },
 ];
 
 /* -------------------- COMPONENT -------------------- */
 export default function Footer() {
   return (
     <footer className="bg-[#1B2A41] text-white w-full overflow-hidden">
-        {/* Newsletter Section */}
+      {/* Newsletter Section */}
       <div className="border-t border-gray-700">
         <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
@@ -81,7 +110,8 @@ export default function Footer() {
             >
               <h3 className="text-xl font-semibold mb-2">Stay Updated</h3>
               <p className="text-gray-300">
-                Get the latest news about Foinda features, creator success stories, and industry insights.
+                Get the latest news about Foinda features, creator success
+                stories, and industry insights.
               </p>
             </motion.div>
 
@@ -91,12 +121,20 @@ export default function Footer() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
               className="flex flex-col sm:flex-row gap-4"
-              onSubmit={(e) => e.preventDefault()}
+              onSubmit={(e) => {
+                e.preventDefault();
+                const emailInput = e.currentTarget.email.value;
+                if (!emailInput) return;
+                // Open user's mail client
+                window.location.href = `mailto:admin@foinda.com?subject=Newsletter Subscription&body=Please subscribe: ${emailInput}`;
+              }}
             >
               <input
                 type="email"
+                name="email"
                 placeholder="Enter your email"
                 className="flex-1 px-3 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-orange-500 focus:border-transparent w-full"
+                required
               />
               <button
                 type="submit"
@@ -131,14 +169,18 @@ export default function Footer() {
               </Link>
 
               <p className="text-gray-300 leading-relaxed mb-6 max-w-md">
-                Empowering African creators with borderless financial solutions. 
-                From payments to funding, we&apos;re building the future of creator finance.
+                Empowering African creators with borderless financial solutions.
+                From payments to funding, we&apos;re building the future of
+                creator finance.
               </p>
 
               {/* Contact Info */}
               <div className="space-y-2 mb-6">
                 {contactInfo.map((info, index) => (
-                  <div key={index} className="flex items-center gap-3 text-gray-300">
+                  <div
+                    key={index}
+                    className="flex items-center gap-3 text-gray-300"
+                  >
                     <div className="text-orange-500">{info.icon}</div>
                     <span className="text-sm">{info.text}</span>
                   </div>
@@ -190,8 +232,6 @@ export default function Footer() {
           ))}
         </div>
       </div>
-
-    
 
       {/* Bottom Bar */}
       <div className="border-t border-gray-700">

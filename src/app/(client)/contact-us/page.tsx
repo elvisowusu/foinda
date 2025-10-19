@@ -74,18 +74,33 @@ export default function ContactUs() {
     type: "general",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-      type: "general",
-    });
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        alert("Message sent successfully!");
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+          type: "general",
+        });
+      } else {
+        alert("Failed to send message. Please try again later.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("An error occurred while sending your message.");
+    }
   };
 
   const handleChange = (

@@ -13,6 +13,7 @@ import {
   Linkedin,
   Youtube,
 } from "lucide-react";
+import { useRef } from "react";
 
 /* -------------------- ARRAYS AT TOP -------------------- */
 const footerSections = [
@@ -93,13 +94,37 @@ const contactInfo = [
   { icon: <Phone className="w-4 h-4" />, text: "+233 54 602 8860" },
   { icon: <MapPin className="w-4 h-4" />, text: "Accra, Ghana" },
 ];
+declare global {
+  interface Window {
+    highlightNewsletter?: () => void;
+  }
+}
 
 /* -------------------- COMPONENT -------------------- */
 export default function Footer() {
+  const newsletterRef = useRef<HTMLDivElement>(null);
+
+  if (typeof window !== "undefined") {
+    window.highlightNewsletter = () => {
+      const el = newsletterRef.current;
+      if (!el) return;
+      el.classList.add("ring-4", "ring-orange-500");
+      setTimeout(() => {
+        el.classList.remove("ring-4", "ring-orange-500");
+      }, 1500);
+    };
+  }
+
   return (
-    <footer className="bg-[#1B2A41] text-white w-full overflow-hidden">
+    <footer
+      id="footer"
+      className="bg-[#1B2A41] text-white w-full overflow-hidden"
+    >
       {/* Newsletter Section */}
-      <div className="border-t border-gray-700">
+      <div
+        ref={newsletterRef}
+        className="border-t border-gray-700 transition-all duration-500"
+      >
         <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <motion.div
@@ -125,7 +150,6 @@ export default function Footer() {
                 e.preventDefault();
                 const emailInput = e.currentTarget.email.value;
                 if (!emailInput) return;
-                // Open user's mail client
                 window.location.href = `mailto:admin@foinda.com?subject=Newsletter Subscription&body=Please subscribe: ${emailInput}`;
               }}
             >
@@ -140,7 +164,7 @@ export default function Footer() {
                 type="submit"
                 className="bg-orange-500 text-white px-5 py-3 rounded-lg font-medium hover:bg-orange-600 transition-colors w-full sm:w-auto"
               >
-               Join Waitlist
+                Join Waitlist
               </button>
             </motion.form>
           </div>

@@ -3,27 +3,29 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
-interface HeroButton {
-  label: string;
-  onClick?: () => void;
-  type: "primary" | "secondary";
+// ✅ Extend the Window interface to include highlightNewsletter
+declare global {
+  interface Window {
+    highlightNewsletter?: () => void;
+  }
 }
 
-// Data array for buttons
-const buttons: HeroButton[] = [
-  {
-    label: "Get Started",
-    onClick: () => console.log("Get Started clicked"),
-    type: "primary",
-  },
-  {
-    label: "Learn More",
-    onClick: () => console.log("Learn More clicked"),
-    type: "secondary",
-  },
-];
-
 export default function HeroText() {
+  const handleScrollToFooter = () => {
+    const footer = document.getElementById("footer");
+    if (footer) {
+      footer.scrollIntoView({ behavior: "smooth" });
+      setTimeout(() => {
+        window.highlightNewsletter?.(); // ✅ No "any" needed now
+      }, 800);
+    }
+  };
+
+  const buttons = [
+    { label: "Join Waitlist", type: "primary" },
+    { label: "Learn More", type: "secondary" },
+  ];
+
   return (
     <motion.div
       initial={{ opacity: 0, x: -40 }}
@@ -39,7 +41,7 @@ export default function HeroText() {
       <p className="text-[#1B2A41] text-base opacity-80 leading-relaxed">
         From payments to funding and analytics - Foinda empowers African
         creators, freelancers, and digital entrepreneurs with everything they
-        need to thrive.
+        need to thrive.
       </p>
 
       <div className="flex flex-col lg:flex-row gap-3 pt-4 justify-center lg:justify-start">
@@ -47,7 +49,7 @@ export default function HeroText() {
           <Button
             key={index}
             size="lg"
-            onClick={btn.onClick}
+            onClick={handleScrollToFooter}
             variant={btn.type === "secondary" ? "outline" : undefined}
             className={`cursor-pointer w-full lg:w-auto font-medium ${
               btn.type === "primary"

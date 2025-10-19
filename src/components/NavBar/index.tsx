@@ -10,22 +10,27 @@ import { MenuIcon, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { navLinks } from "@/lib/constants";
 
+// ✅ Extend the Window interface globally (for highlightNewsletter or other window props)
+declare global {
+  interface Window {
+    highlightNewsletter?: () => void;
+  }
+}
+
 export default function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Handle scroll to add shadow
+  // Handle scroll shadow
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 0);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 0);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close dropdown if clicked outside
+  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -46,7 +51,7 @@ export default function Navbar() {
       }`}
     >
       <div className="max-width-wrapper flex justify-between items-center py-3">
-        <Link href={"/"} className="flex items-center">
+        <Link href="/" className="flex items-center">
           <Image
             src="/logo.jpg"
             width={40}
@@ -79,9 +84,9 @@ export default function Navbar() {
           })}
         </div>
 
-        {/* Desktop buttons */}
+        {/* Desktop CTA */}
         <div className="hidden sm:flex items-center gap-4">
-          <Link href={"/contact-us"}>
+          <Link href="/contact-us">
             <Button className="rounded-full cursor-pointer h-10 w-35 bg-orange-500 text-white hover:bg-orange-600 border-none">
               Get Started
             </Button>
@@ -110,7 +115,7 @@ export default function Navbar() {
                 transition={{ duration: 0.2 }}
                 className="absolute right-0 mt-2 w-72 bg-white shadow-lg rounded-lg border overflow-hidden z-50"
               >
-                <div className="flex flex-col ">
+                <div className="flex flex-col">
                   {navLinks.map((navLink, index) => {
                     const isActive =
                       pathname === navLink.link ||
@@ -130,11 +135,19 @@ export default function Navbar() {
                       </Link>
                     );
                   })}
-                  <Link href={"/contact-us"} onClick={() => setIsOpen(false)}>
-                    <Button className="mx-4 my-2 h-10 w-[9rem]  text-white bg-orange-500 hover:bg-orange-600 border-none rounded-md">
-                      Get Started
-                    </Button>
-                  </Link>
+
+                  <Button
+                    onClick={() => {
+                      setIsOpen(false);
+                      const footer = document.getElementById("footer");
+                      if (footer) {
+                        footer.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }}
+                    className="mx-4 my-2 h-10 w-[9rem] text-white bg-orange-500 hover:bg-orange-600 border-none rounded-md"
+                  >
+                    Join Waitlist
+                  </Button>
                 </div>
               </motion.div>
             )}

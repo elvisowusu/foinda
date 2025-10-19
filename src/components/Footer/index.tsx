@@ -11,40 +11,42 @@ const footerSections = [
     title: "About",
     links: [
       { text: "About Us", link: "/about-us" },
-      { text: "Our Mission", link: "/about-us#mission" },
-      { text: "Team", link: "/about-us#team" },
-      { text: "Careers", link: "/careers" },
-      { text: "Press", link: "/press" }
+      // { text: "Our Mission", link: "/about-us#mission" },
+      { text: "Our Mission", link: "/about-us" },
+      // { text: "Team", link: "/about-us#team" },
+      { text: "Team", link: "/about-us" },
+      // { text: "Careers", link: "/careers" },
+      // { text: "Press", link: "/press" }
     ]
   },
-  {
-    title: "Product",
-    links: [
-      { text: "Foinda Wallet", link: "/wallet" },
-      { text: "Foinda Advance", link: "/wallet#advance" },
-      { text: "Identity Layer", link: "/wallet#identity" },
-      { text: "Store & Growth", link: "/wallet#store" },
-      { text: "Copilot", link: "/wallet#copilot" }
-    ]
-  },
-  {
-    title: "Community",
-    links: [
-      { text: "Creator Network", link: "/wallet#network" },
-      { text: "Success Stories", link: "/wallet#stories" },
-      { text: "Blog", link: "/blog" },
-      { text: "Events", link: "/events" },
-      { text: "Partners", link: "/partners" }
-    ]
-  },
+  // {
+  //   title: "Product",
+  //   links: [
+  //     { text: "Foinda Wallet", link: "/wallet" },
+  //     { text: "Foinda Advance", link: "/wallet#advance" },
+  //     { text: "Identity Layer", link: "/wallet#identity" },
+  //     { text: "Store & Growth", link: "/wallet#store" },
+  //     { text: "Copilot", link: "/wallet#copilot" }
+  //   ]
+  // },
+  // {
+  //   title: "Community",
+  //   links: [
+  //     { text: "Creator Network", link: "/wallet#network" },
+  //     { text: "Success Stories", link: "/wallet#stories" },
+  //     { text: "Blog", link: "/blog" },
+  //     { text: "Events", link: "/events" },
+  //     { text: "Partners", link: "/partners" }
+  //   ]
+  // },
   {
     title: "Support",
     links: [
-      { text: "Help Center", link: "/help" },
+      { text: "Help Center", link: "/contact-us" },
       { text: "Contact Us", link: "/contact-us" },
-      { text: "API Docs", link: "/docs" },
+      // { text: "API Docs", link: "/docs" },
       { text: "Status", link: "/status" },
-      { text: "Security", link: "/security" }
+      // { text: "Security", link: "/security" }
     ]
   }
 ];
@@ -105,7 +107,7 @@ export default function Footer() {
               </div>
 
               {/* Social Links */}
-              <div className="flex flex-wrap gap-3">
+              {/* <div className="flex flex-wrap gap-3">
                 {socialLinks.map((social, index) => (
                   <motion.a
                     key={index}
@@ -119,7 +121,7 @@ export default function Footer() {
                     {social.icon}
                   </motion.a>
                 ))}
-              </div>
+              </div> */}
             </motion.div>
           </div>
 
@@ -203,7 +205,7 @@ export default function Footer() {
             © 2025 Foinda. All rights reserved.
           </motion.p>
 
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -219,7 +221,7 @@ export default function Footer() {
             <Link href="/cookies" className="text-gray-400 hover:text-orange-500 transition-colors">
               Cookies
             </Link>
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
     </footer>

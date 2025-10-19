@@ -85,7 +85,7 @@ export default function CopilotLayer() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Your Personal <span className="text-orange-500">Growth Buddy</span>
+           <span className="text-orange-500">Foinda Copilot</span> - Your Personal <span className="text-orange-500">Growth Buddy</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Foinda Copilot turns your data into daily growth actions — so you
@@ -258,7 +258,7 @@ export default function CopilotLayer() {
           </motion.div>
         </div>
 
-        {/* Sample Conversations */}
+        {/* Sample Conversations
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -310,7 +310,7 @@ export default function CopilotLayer() {
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

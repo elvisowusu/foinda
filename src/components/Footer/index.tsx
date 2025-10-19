@@ -140,7 +140,7 @@ export default function Footer() {
                 type="submit"
                 className="bg-orange-500 text-white px-5 py-3 rounded-lg font-medium hover:bg-orange-600 transition-colors w-full sm:w-auto"
               >
-                Subscribe
+               Join Waitlist
               </button>
             </motion.form>
           </div>

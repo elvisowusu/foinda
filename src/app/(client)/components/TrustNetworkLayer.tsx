@@ -1,34 +1,34 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Shield, Network, Lock, Globe } from "lucide-react";
+import { Network } from "lucide-react";
 import Image from "next/image";
 import { images } from "@/lib/images";
 
 /* -------------------- ARRAYS -------------------- */
-const networkFeatures = [
-  {
-    icon: Shield,
-    title: "Content Protection",
-    description:
-      "Every post, song, and video protected by Foinda's invisible Social API.",
-  },
-  {
-    icon: Network,
-    title: "Creator Network",
-    description: "Join verified creators building trust through technology.",
-  },
-  {
-    icon: Lock,
-    title: "Secure Transactions",
-    description: "Bank-grade security for all your creative transactions.",
-  },
-  {
-    icon: Globe,
-    title: "Global Reach",
-    description: "Connect with creators across Africa and beyond.",
-  },
-];
+// const networkFeatures = [
+//   {
+//     icon: Shield,
+//     title: "Content Protection",
+//     description:
+//       "Every post, song, and video protected by Foinda's invisible Social API.",
+//   },
+//   {
+//     icon: Network,
+//     title: "Creator Network",
+//     description: "Join verified creators building trust through technology.",
+//   },
+//   {
+//     icon: Lock,
+//     title: "Secure Transactions",
+//     description: "Bank-grade security for all your creative transactions.",
+//   },
+//   {
+//     icon: Globe,
+//     title: "Global Reach",
+//     description: "Connect with creators across Africa and beyond.",
+//   },
+// ];
 
 const networkStats = [
   { number: "50K+", label: "Protected Content" },
@@ -121,7 +121,7 @@ export default function TrustNetworkLayer() {
             </div>
 
             {/* Features List */}
-            <div className="space-y-6">
+            {/* <div className="space-y-6">
               {networkFeatures.map((feature, i) => {
                 const Icon = feature.icon;
                 return (
@@ -146,7 +146,7 @@ export default function TrustNetworkLayer() {
                   </motion.div>
                 );
               })}
-            </div>
+            </div> */}
 
             {/* CTA */}
             <motion.div

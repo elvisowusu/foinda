@@ -11,40 +11,42 @@ const footerSections = [
     title: "About",
     links: [
       { text: "About Us", link: "/about-us" },
-      { text: "Our Mission", link: "/about-us#mission" },
-      { text: "Team", link: "/about-us#team" },
-      { text: "Careers", link: "/careers" },
-      { text: "Press", link: "/press" }
+      // { text: "Our Mission", link: "/about-us#mission" },
+      { text: "Our Mission", link: "/about-us" },
+      // { text: "Team", link: "/about-us#team" },
+      { text: "Team", link: "/about-us" },
+      // { text: "Careers", link: "/careers" },
+      // { text: "Press", link: "/press" }
     ]
   },
-  {
-    title: "Product",
-    links: [
-      { text: "Foinda Wallet", link: "/wallet" },
-      { text: "Foinda Advance", link: "/wallet#advance" },
-      { text: "Identity Layer", link: "/wallet#identity" },
-      { text: "Store & Growth", link: "/wallet#store" },
-      { text: "Copilot", link: "/wallet#copilot" }
-    ]
-  },
-  {
-    title: "Community",
-    links: [
-      { text: "Creator Network", link: "/wallet#network" },
-      { text: "Success Stories", link: "/wallet#stories" },
-      { text: "Blog", link: "/blog" },
-      { text: "Events", link: "/events" },
-      { text: "Partners", link: "/partners" }
-    ]
-  },
+  // {
+  //   title: "Product",
+  //   links: [
+  //     { text: "Foinda Wallet", link: "/wallet" },
+  //     { text: "Foinda Advance", link: "/wallet#advance" },
+  //     { text: "Identity Layer", link: "/wallet#identity" },
+  //     { text: "Store & Growth", link: "/wallet#store" },
+  //     { text: "Copilot", link: "/wallet#copilot" }
+  //   ]
+  // },
+  // {
+  //   title: "Community",
+  //   links: [
+  //     { text: "Creator Network", link: "/wallet#network" },
+  //     { text: "Success Stories", link: "/wallet#stories" },
+  //     { text: "Blog", link: "/blog" },
+  //     { text: "Events", link: "/events" },
+  //     { text: "Partners", link: "/partners" }
+  //   ]
+  // },
   {
     title: "Support",
     links: [
-      { text: "Help Center", link: "/help" },
+      { text: "Help Center", link: "/contact-us" },
       { text: "Contact Us", link: "/contact-us" },
-      { text: "API Docs", link: "/docs" },
+      // { text: "API Docs", link: "/docs" },
       { text: "Status", link: "/status" },
-      { text: "Security", link: "/security" }
+      // { text: "Security", link: "/security" }
     ]
   }
 ];
@@ -67,90 +69,7 @@ const contactInfo = [
 export default function Footer() {
   return (
     <footer className="bg-[#1B2A41] text-white w-full overflow-hidden">
-      {/* Main Footer Content */}
-      <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-10">
-          {/* Brand Section */}
-          <div className="lg:col-span-2">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <Link href="/" className="flex items-center mb-6">
-                <Image
-                  src="/logo.jpg"
-                  width={40}
-                  height={40}
-                  alt="Foinda Logo"
-                  className="rounded-full"
-                />
-                <span className="ml-3 text-2xl font-bold">Foinda</span>
-              </Link>
-
-              <p className="text-gray-300 leading-relaxed mb-6 max-w-md">
-                Empowering African creators with borderless financial solutions. 
-                From payments to funding, we&apos;re building the future of creator finance.
-              </p>
-
-              {/* Contact Info */}
-              <div className="space-y-2 mb-6">
-                {contactInfo.map((info, index) => (
-                  <div key={index} className="flex items-center gap-3 text-gray-300">
-                    <div className="text-orange-500">{info.icon}</div>
-                    <span className="text-sm">{info.text}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Social Links */}
-              <div className="flex flex-wrap gap-3">
-                {socialLinks.map((social, index) => (
-                  <motion.a
-                    key={index}
-                    href={social.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.1 }}
-                    className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-gray-300 hover:bg-orange-500 hover:text-white transition-colors"
-                    aria-label={social.label}
-                  >
-                    {social.icon}
-                  </motion.a>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Footer Links */}
-          {footerSections.map((section, sectionIndex) => (
-            <motion.div
-              key={sectionIndex}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: sectionIndex * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-lg font-semibold mb-4">{section.title}</h3>
-              <ul className="space-y-3">
-                {section.links.map((link, linkIndex) => (
-                  <li key={linkIndex}>
-                    <Link
-                      href={link.link}
-                      className="text-gray-300 hover:text-orange-500 transition-colors text-sm"
-                    >
-                      {link.text}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-
-      {/* Newsletter Section */}
+        {/* Newsletter Section */}
       <div className="border-t border-gray-700">
         <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
@@ -189,6 +108,90 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      {/* Main Footer Content */}
+      <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-10">
+          {/* Brand Section */}
+          <div className="lg:col-span-2">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <Link href="/" className="flex items-center mb-6">
+                <Image
+                  src="/logo.jpg"
+                  width={40}
+                  height={40}
+                  alt="Foinda Logo"
+                  className="rounded-full"
+                />
+                <span className="ml-3 text-2xl font-bold">Foinda</span>
+              </Link>
+
+              <p className="text-gray-300 leading-relaxed mb-6 max-w-md">
+                Empowering African creators with borderless financial solutions. 
+                From payments to funding, we&apos;re building the future of creator finance.
+              </p>
+
+              {/* Contact Info */}
+              <div className="space-y-2 mb-6">
+                {contactInfo.map((info, index) => (
+                  <div key={index} className="flex items-center gap-3 text-gray-300">
+                    <div className="text-orange-500">{info.icon}</div>
+                    <span className="text-sm">{info.text}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Social Links */}
+              {/* <div className="flex flex-wrap gap-3">
+                {socialLinks.map((social, index) => (
+                  <motion.a
+                    key={index}
+                    href={social.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1 }}
+                    className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-gray-300 hover:bg-orange-500 hover:text-white transition-colors"
+                    aria-label={social.label}
+                  >
+                    {social.icon}
+                  </motion.a>
+                ))}
+              </div> */}
+            </motion.div>
+          </div>
+
+          {/* Footer Links */}
+          {footerSections.map((section, sectionIndex) => (
+            <motion.div
+              key={sectionIndex}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: sectionIndex * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-lg font-semibold mb-4">{section.title}</h3>
+              <ul className="space-y-3">
+                {section.links.map((link, linkIndex) => (
+                  <li key={linkIndex}>
+                    <Link
+                      href={link.link}
+                      className="text-gray-300 hover:text-orange-500 transition-colors text-sm"
+                    >
+                      {link.text}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+    
 
       {/* Bottom Bar */}
       <div className="border-t border-gray-700">
@@ -203,7 +206,7 @@ export default function Footer() {
             © 2025 Foinda. All rights reserved.
           </motion.p>
 
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -219,7 +222,7 @@ export default function Footer() {
             <Link href="/cookies" className="text-gray-400 hover:text-orange-500 transition-colors">
               Cookies
             </Link>
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
     </footer>

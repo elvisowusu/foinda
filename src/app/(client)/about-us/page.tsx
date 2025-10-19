@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Heart, Globe, Award, Zap } from "lucide-react";
 import { images } from "@/lib/images";
+import { useRouter } from "next/navigation";
 
 const stats = [
   { number: "10K+", label: "Active Creators" },
@@ -16,23 +17,27 @@ const values = [
   {
     icon: <Heart className="w-8 h-8 text-orange-500" />,
     title: "Creator-First",
-    description: "Every feature we build starts with understanding creator needs and pain points."
+    description:
+      "Every feature we build starts with understanding creator needs and pain points.",
   },
   {
     icon: <Globe className="w-8 h-8 text-orange-500" />,
     title: "Borderless",
-    description: "We believe creativity shouldn't be limited by geography or payment systems."
+    description:
+      "We believe creativity shouldn't be limited by geography or payment systems.",
   },
   {
     icon: <Zap className="w-8 h-8 text-orange-500" />,
     title: "Fast & Reliable",
-    description: "Speed and reliability are non-negotiable when it comes to your money."
+    description:
+      "Speed and reliability are non-negotiable when it comes to your money.",
   },
   {
     icon: <Award className="w-8 h-8 text-orange-500" />,
     title: "Excellence",
-    description: "We strive for excellence in everything we do, from code to customer support."
-  }
+    description:
+      "We strive for excellence in everything we do, from code to customer support.",
+  },
 ];
 
 const team = [
@@ -40,23 +45,25 @@ const team = [
     name: "Kwame Asante",
     role: "CEO & Co-Founder",
     image: "/human1.png",
-    bio: "Former fintech executive with 10+ years building payment solutions across Africa."
+    bio: "Former fintech executive with 10+ years building payment solutions across Africa.",
   },
   {
     name: "Aisha Okafor",
-    role: "CTO & Co-Founder", 
+    role: "CTO & Co-Founder",
     image: "/human1.png",
-    bio: "Tech leader passionate about using technology to solve real-world problems."
+    bio: "Tech leader passionate about using technology to solve real-world problems.",
   },
   {
     name: "David Kimani",
     role: "Head of Product",
-    image: "/human1.png", 
-    bio: "Product strategist focused on creating intuitive experiences for creators."
-  }
+    image: "/human1.png",
+    bio: "Product strategist focused on creating intuitive experiences for creators.",
+  },
 ];
 
 export default function AboutUs() {
+  const router = useRouter();
+
   return (
     <main className="bg-white text-[#1B2A41] overflow-x-hidden">
       {/* Hero Section with Animation */}
@@ -71,15 +78,17 @@ export default function AboutUs() {
               viewport={{ once: true }}
             >
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                Empowering African <span className="text-orange-500">Creators</span>
+                Empowering African{" "}
+                <span className="text-orange-500">Creators</span>
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed mb-8">
-                We&apos;re building the financial infrastructure that African creators, freelancers, 
-                and digital entrepreneurs need to thrive in the global economy.
+                We&apos;re building the financial infrastructure that African
+                creators, freelancers, and digital entrepreneurs need to thrive
+                in the global economy.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed mb-8">
-                From creativity to income — all in one platform. Foinda helps African creators 
-                get paid, protect their work, and grow smarter.
+                From creativity to income — all in one platform. Foinda helps
+                African creators get paid, protect their work, and grow smarter.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <button className="bg-orange-500 cursor-pointer text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-600 transition">
@@ -136,16 +145,24 @@ export default function AboutUs() {
                     className="relative z-10 bg-gradient-to-r from-orange-500 to-[#4e80ca] rounded-2xl p-6 text-center"
                   >
                     <div className="w-16 h-16 bg-white rounded-full mx-auto mb-4 flex items-center justify-center">
-                      <span className="text-2xl font-bold text-orange-500">F</span>
+                      <span className="text-2xl font-bold text-orange-500">
+                        F
+                      </span>
                     </div>
                     <h3 className="text-xl font-bold mb-2">Foinda ID</h3>
                     <p className="text-sm opacity-90 mb-4">Verified Creator</p>
-                    
+
                     {/* Connected Accounts */}
                     <div className="flex justify-center gap-3">
-                      <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-xs">YT</div>
-                      <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-xs">TT</div>
-                      <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-xs">IG</div>
+                      <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-xs">
+                        YT
+                      </div>
+                      <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-xs">
+                        TT
+                      </div>
+                      <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-xs">
+                        IG
+                      </div>
                     </div>
                   </motion.div>
 
@@ -195,7 +212,7 @@ export default function AboutUs() {
                     { left: 65, top: 5, duration: 4, delay: 1.1 },
                     { left: 95, top: 35, duration: 5.5, delay: 0.6 },
                     { left: 50, top: 55, duration: 4.5, delay: 1.4 },
-                    { left: 12, top: 75, duration: 5, delay: 0.1 }
+                    { left: 12, top: 75, duration: 5, delay: 0.1 },
                   ].map((particle, i) => (
                     <motion.div
                       key={i}
@@ -223,7 +240,7 @@ export default function AboutUs() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-[#1B2A41] text-white">
+      {/* <section className="py-16 bg-[#1B2A41] text-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -243,7 +260,7 @@ export default function AboutUs() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Mission Section */}
       <section className="py-24 px-6">
@@ -259,16 +276,19 @@ export default function AboutUs() {
                 Our Mission
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                To democratize access to financial services for African creators by providing 
-                borderless payment solutions, instant funding, and comprehensive financial tools 
-                that enable them to focus on what they do best: creating.
+                To democratize access to financial services for African creators
+                by providing borderless payment solutions, instant funding, and
+                comprehensive financial tools that enable them to focus on what
+                they do best: creating.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
-                We believe that every creator deserves access to the same financial opportunities 
-                regardless of where they&apos;re located, and we&apos;re building the infrastructure to make that possible.
+                We believe that every creator deserves access to the same
+                financial opportunities regardless of where they&apos;re
+                located, and we&apos;re building the infrastructure to make that
+                possible.
               </p>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -314,9 +334,7 @@ export default function AboutUs() {
                 viewport={{ once: true }}
                 className="bg-white p-6 rounded-2xl shadow-lg text-center"
               >
-                <div className="flex justify-center mb-4">
-                  {value.icon}
-                </div>
+                <div className="flex justify-center mb-4">{value.icon}</div>
                 <h3 className="text-xl font-semibold mb-3">{value.title}</h3>
                 <p className="text-gray-600">{value.description}</p>
               </motion.div>
@@ -335,7 +353,9 @@ export default function AboutUs() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Meet Our Team</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Meet Our Team
+            </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               The passionate people building the future of creator finance
             </p>
@@ -359,7 +379,9 @@ export default function AboutUs() {
                   className="rounded-full mx-auto mb-4"
                 />
                 <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
-                <p className="text-orange-500 font-medium mb-3">{member.role}</p>
+                <p className="text-orange-500 font-medium mb-3">
+                  {member.role}
+                </p>
                 <p className="text-gray-600">{member.bio}</p>
               </motion.div>
             ))}
@@ -380,14 +402,21 @@ export default function AboutUs() {
               Ready to Join Our Mission?
             </h2>
             <p className="text-xl text-gray-300 mb-8">
-              Be part of the movement that&apos;s transforming how African creators 
-              access financial services and grow their businesses.
+              Be part of the movement that&apos;s transforming how African
+              creators access financial services and grow their businesses.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-orange-500 text-white px-8 py-3 rounded-lg font-medium hover:bg-orange-600 transition">
+              <button
+                onClick={() => router.push("/contact-us")}
+                className="bg-orange-500 text-white px-8 py-3 rounded-lg font-medium hover:bg-orange-600 transition"
+              >
                 Create Your Foinda ID
               </button>
-              <button className="border border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white hover:text-[#1B2A41] transition">
+
+              <button
+                onClick={() => router.push("/contact-us")}
+                className="border border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white hover:text-[#1B2A41] transition"
+              >
                 Contact Us
               </button>
             </div>

@@ -1,34 +1,23 @@
-import WalletIntro from "./components/WalletIntro";
-import FinancialLayer from "./components/FinancialLayer";
-import IdentityLayer from "./components/IdentityLayer";
-import TrustNetworkLayer from "./components/TrustNetworkLayer";
-import CopilotLayer from "./components/CopilotLayer";
-import CommunityImpactLayer from "./components/CommunityImpactLayer";
-import StoreGrowthLayer from "./components/StoreGrowthLayer";
+// components/WalletIntro/WalletIntro.tsx
+"use client";
 
-export default function WalletPage() {
+import WalletPhoneSection from "./components/WalletPhoneSection";
+import WalletTextSection from "./components/WalletTextSection";
+
+
+export default function WalletIntro() {
   return (
-    <main className="bg-white text-[#1B2A41]">
-      {/* === Section 1: Wallet Intro === */}
-      <WalletIntro />
-      
-      {/* === Section 2: Financial Layer (Merged CrossBorderPower + FoindaAdvance) === */}
-      <FinancialLayer />
-      
-      {/* === Section 3: Identity Layer === */}
-      <IdentityLayer />
-      
-      {/* === Section 4: Store & Growth Layer === */}
-      <StoreGrowthLayer />
-      
-      {/* === Section 5: Trust & Network Layer === */}
-      <TrustNetworkLayer />
-      
-      {/* === Section 6: Copilot Layer === */}
-      <CopilotLayer />
-      
-      {/* === Section 7: Community & Impact Layer === */}
-      <CommunityImpactLayer />
-    </main>
+    <section className="relative overflow-hidden">
+      <div
+        className="max-w-7xl mx-4 my-8 p-6 
+                    md:mx-8 md:p-8 
+                    lg:p-0 
+                    md:flex lg:h-[32rem] lg:py-[3rem] lg:mx-[10rem] 
+                    rounded-3xl bg-white/90 backdrop-blur-sm shadow-lg border border-[#F97316]/10 relative overflow-hidden"
+      >
+        <WalletTextSection />
+        <WalletPhoneSection />
+      </div>
+    </section>
   );
 }

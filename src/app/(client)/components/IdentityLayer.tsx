@@ -69,8 +69,10 @@ export default function IdentityLayer() {
             Your <span className="text-orange-500">Creative World</span>
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Connect all your social accounts once. Foinda ID verifies your
-            earnings, insights, and creative rights — invisibly.
+            Foinda ID is your verified digital passport — one secure profile
+            that links your social accounts, earnings, and creative rights. Sign
+            once and unlock payments, storefronts, funding, and verified brand
+            partnerships. No paperwork. No duplication. Just trust.
           </p>
         </motion.div>
 

@@ -108,7 +108,7 @@ export default function Footer() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-xl font-semibold mb-2">Stay Updated</h3>
+              <h3 className="text-xl font-semibold mb-2">Join the Waitlist</h3>
               <p className="text-gray-300">
                 Get the latest news about Foinda features, creator success
                 stories, and industry insights.

@@ -147,9 +147,10 @@ export default function FinancialLayer() {
             className="relative overflow-hidden rounded-3xl"
           >
             <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 overflow-hidden">
-              <h3 className="text-2xl font-bold mb-4 text-[#1B2A41]">
-                Foinda Advance
-              </h3>
+            <h3 className="text-4xl font-bold mb-4 bg-gradient-to-r from-orange-500 to-[#4e80ca] bg-clip-text text-transparent">
+  Foinda Advance
+</h3>
+
               <p className="text-gray-600 mb-6">
                 A revenue-based financing product designed to offer creators
                 milestone-based funding for their projects.

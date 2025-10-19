@@ -54,8 +54,8 @@ export default function FinancialLayer() {
         {/* Header */}
         <motion.div {...fadeUp()} className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="text-orange-500">Foinda Pay</span> - Smart Money for{" "}
-            <span className="text-orange-500">Smart Creators</span>
+            <span className="text-orange-500">Foinda Pay</span> - Smart Money
+            for <span className="text-orange-500">Smart Creators</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             A multi-rail payment infrastructure that enables creators and
@@ -147,9 +147,12 @@ export default function FinancialLayer() {
             className="relative overflow-hidden rounded-3xl"
           >
             <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 overflow-hidden">
-            <h3 className="text-4xl font-bold mb-4 bg-gradient-to-r from-orange-500 to-[#4e80ca] bg-clip-text text-transparent">
-  Foinda Advance
-</h3>
+              <h3 className="text-4xl font-bold mb-4 bg-gradient-to-r from-orange-500 to-[#4e80ca] bg-clip-text text-transparent">
+                Foinda{" "}
+                <span className="text-5xl bg-gradient-to-r from-[#7aa0e0] to-[#4e80ca] bg-clip-text text-transparent">
+                  Advance
+                </span>
+              </h3>
 
               <p className="text-gray-600 mb-6">
                 A revenue-based financing product designed to offer creators

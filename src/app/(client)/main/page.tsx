@@ -1,11 +1,11 @@
 import React from "react";
 // import WalletIntro from "../components/WalletIntro";
-import CopilotLayer from "../components/CopilotLayer";
 import CommunityImpactLayer from "./community_impact_layer/page";
 import IdentityLayer from "./identity_layer/IdentityLayer";
 import FinancialLayer from "./financial_layer/FinancialLayer";
 import StoreGrowthLayer from "./StoreGrowthLayer/StoreGrowthLayer";
 import TrustNetworkLayer from "./TrustNetworkLayer/TrustNetworkLayer";
+import CopilotLayer from "./CopilotLayer/CopilotLayer";
 
 export default function Main() {
   return (

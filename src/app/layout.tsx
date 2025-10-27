@@ -87,7 +87,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    // ✅ Added suppressHydrationWarning to prevent mismatches
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${poppins.variable} ${comfortaa.variable} ${bodoni_Moda.variable} antialiased`}
       >

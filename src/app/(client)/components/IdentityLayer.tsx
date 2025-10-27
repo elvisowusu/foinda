@@ -3,30 +3,6 @@
 import { motion } from "framer-motion";
 import { Link as LinkIcon, CheckCircle } from "lucide-react";
 
-// 🌟 Data Arrays (all grouped at top)
-// const identityFeatures = [
-//   {
-//     icon: <Shield className="w-6 h-6 text-orange-500" />,
-//     title: "Verified Identity",
-//     description: "One-time verification unlocks all Foinda features.",
-//   },
-//   {
-//     icon: <LinkIcon className="w-6 h-6 text-orange-500" />,
-//     title: "Account Linking",
-//     description: "Connect YouTube, TikTok, Instagram seamlessly.",
-//   },
-//   {
-//     icon: <CheckCircle className="w-6 h-6 text-orange-500" />,
-//     title: "Earnings Verification",
-//     description: "Automatic income tracking across platforms.",
-//   },
-//   {
-//     icon: <Users className="w-6 h-6 text-orange-500" />,
-//     title: "Creator Network",
-//     description: "Join verified creators building together.",
-//   },
-// ];
-
 const linkedAccounts = [
   { name: "YouTube", icon: "YT", color: "bg-red-500" },
   { name: "TikTok", icon: "TT", color: "bg-black" },
@@ -173,26 +149,6 @@ export default function IdentityLayer() {
                 work automatically.
               </p>
             </div>
-
-            {/* <div className="space-y-6 ">
-              {identityFeatures.map((feature, i) => (
-                <motion.div
-                  key={i}
-                  {...fadeUp(i * 0.1)}
-                  className="flex items-start gap-4 p-4 bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow overflow-hidden"
-                >
-                  <div className="flex-shrink-0 mt-1">{feature.icon}</div>
-                  <div>
-                    <h4 className="font-semibold text-[#1B2A41] mb-1">
-                      {feature.title}
-                    </h4>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      {feature.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div> */}
 
             <motion.div {...fadeUp(0.4)}>
               <button className="bg-orange-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-orange-600 transition-colors text-base sm:text-lg flex items-center gap-2">

@@ -6,29 +6,6 @@ import Image from "next/image";
 import { images } from "@/lib/images";
 
 /* -------------------- ARRAYS -------------------- */
-// const networkFeatures = [
-//   {
-//     icon: Shield,
-//     title: "Content Protection",
-//     description:
-//       "Every post, song, and video protected by Foinda's invisible Social API.",
-//   },
-//   {
-//     icon: Network,
-//     title: "Creator Network",
-//     description: "Join verified creators building trust through technology.",
-//   },
-//   {
-//     icon: Lock,
-//     title: "Secure Transactions",
-//     description: "Bank-grade security for all your creative transactions.",
-//   },
-//   {
-//     icon: Globe,
-//     title: "Global Reach",
-//     description: "Connect with creators across Africa and beyond.",
-//   },
-// ];
 
 const networkStats = [
   { number: "50K+", label: "Protected Content" },
@@ -119,34 +96,6 @@ export default function TrustNetworkLayer() {
                 across Africa.
               </p>
             </div>
-
-            {/* Features List */}
-            {/* <div className="space-y-6">
-              {networkFeatures.map((feature, i) => {
-                const Icon = feature.icon;
-                return (
-                  <motion.div
-                    key={feature.title}
-                    variants={fadeUp}
-                    initial="hidden"
-                    whileInView="show"
-                    custom={0.3 + i * 0.1}
-                    viewport={{ once: true }}
-                    className="flex items-start gap-4 p-4 bg-white/10 rounded-2xl backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-colors"
-                  >
-                    <div className="flex-shrink-0 mt-1">
-                      <Icon className="w-6 h-6 text-orange-500" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold mb-2">{feature.title}</h4>
-                      <p className="text-gray-300 text-sm leading-relaxed">
-                        {feature.description}
-                      </p>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div> */}
 
             {/* CTA */}
             <motion.div

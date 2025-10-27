@@ -16,7 +16,7 @@ export default function Main() {
       {/* === Section 3: Identity Layer === */}
       <IdentityLayer />
 
-      {/* === Section 2: Financial Layer (Merged CrossBorderPower + FoindaAdvance) === */}
+      {/* === Section 2: Financial Layer === */}
       <FinancialLayer />
 
       {/* === Section 4: Store & Growth Layer === */}

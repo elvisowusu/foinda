@@ -11,31 +11,6 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
-import { sharedCarouselOpts } from "@/lib/carouselConfig";
-
-/* -------------------- ARRAYS -------------------- */
-const growthFeatures = [
-  {
-    icon: ShoppingBag,
-    title: "Digital Storefront",
-    description: "Launch your store in minutes with pre-built templates",
-  },
-  {
-    icon: TrendingUp,
-    title: "Growth Insights",
-    description: "AI-powered analytics to optimize your content strategy",
-  },
-  {
-    icon: Package,
-    title: "Product Recommendations",
-    description: "Sell merch, courses, and presets based on your audience",
-  },
-  {
-    icon: Star,
-    title: "Trending Alerts",
-    description: "Get notified when your content is gaining traction",
-  },
-];
 
 const productTypes = [
   {
@@ -255,35 +230,6 @@ export default function StoreGrowthLayer() {
                 monetize your creativity.
               </p>
             </div>
-
-            {/* <div className="space-y-4 sm:space-y-6">
-              {growthFeatures.map((feature, i) => {
-                const Icon = feature.icon;
-                return (
-                  <motion.div
-                    key={feature.title}
-                    variants={fadeUp}
-                    initial="hidden"
-                    whileInView="show"
-                    custom={0.5 + i * 0.1}
-                    viewport={{ once: true }}
-                    className="flex items-start gap-3 sm:gap-4 p-4 bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow"
-                  >
-                    <div className="flex-shrink-0 mt-1">
-                      <Icon className="w-6 h-6 text-orange-500" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-[#1B2A41] mb-1 sm:mb-2">
-                        {feature.title}
-                      </h4>
-                      <p className="text-gray-600 text-sm leading-relaxed">
-                        {feature.description}
-                      </p>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div> */}
           </motion.div>
         </div>
 

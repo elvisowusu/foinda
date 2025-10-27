@@ -1,65 +1,94 @@
-# Foinda - Empowering African Creators with Borderless Finance
+# 🌍 **Foinda — Empowering African Creators with Borderless Finance**
 
-Foinda is a comprehensive financial platform designed specifically for African creators, freelancers, and digital entrepreneurs. We provide borderless payment solutions, instant funding, and comprehensive financial tools that enable creators to focus on what they do best: creating.
+Foinda is a modern financial platform built to empower **African creators, freelancers, and digital entrepreneurs**.  
+It provides **borderless payment solutions**, **instant capital access**, and **smart financial tools** — helping creators transform creativity into capital.
 
-## 🚀 Features
+---
 
-### Core Features
-- **Foinda Wallet**: Borderless account for receiving, holding, and sending money across platforms and currencies
-- **Cross-Border Payments**: Real-time FX conversion with transparent rates across USD, GHS, NGN, and KES
-- **Foinda Advance**: Smart capital for creators with instant advances based on verified earnings
-- **Payment Links**: Accept MoMo, Cards, Wallets, and USSD with one link
-- **Instant Payouts**: Withdraw to any account or Foinda wallet instantly
+## 🚀 **Core Features**
 
-### Key Benefits
-- ✅ Borderless payments across Africa
-- ✅ Real-time currency conversion
-- ✅ Instant funding for creators
-- ✅ Secure multi-rail compliance
-- ✅ Transparent pricing
-- ✅ Mobile-first design
+### 💳 **Foinda Wallet**
+A multi-currency digital wallet that lets creators receive, hold, and send funds globally — supporting **MoMo, cards, wallets, and USSD**.
 
-## 🛠️ Tech Stack
+### 🌐 **Cross-Border Payments**
+Real-time foreign exchange (FX) conversion across **USD, GHS, NGN, and KES**, ensuring transparent and instant settlements.
 
-- **Framework**: Next.js 15.5.4 with App Router
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS 4
-- **Animations**: Framer Motion
-- **UI Components**: Radix UI + Custom Components
-- **Icons**: Lucide React
-- **Fonts**: Poppins & Comfortaa
-- **Deployment**: Vercel (recommended)
+### ⚡ **Foinda Advance**
+Instant creator funding — automatically unlocked based on verified earnings and transaction history.
 
-## 📁 Project Structure
+### 🔗 **Payment Links**
+Generate a universal link to accept payments across multiple methods instantly.
+
+### 💸 **Instant Payouts**
+Withdraw directly to any connected account or Foinda wallet with no delays.
+
+---
+
+## 💡 **Why Foinda**
+
+✅ Borderless payments across Africa  
+✅ Instant creator funding  
+✅ Transparent FX conversion  
+✅ Secure, compliant infrastructure  
+✅ Mobile-first responsive design  
+✅ Modern and accessible UI/UX
+
+---
+
+## 🧠 **Tech Stack**
+
+| Category | Tools |
+|-----------|--------|
+| **Framework** | Next.js 15 (App Router) |
+| **Language** | TypeScript |
+| **Styling** | Tailwind CSS 4 |
+| **Animations** | Framer Motion |
+| **UI Components** | Radix UI + Custom ShadCN components |
+| **Icons** | Lucide React |
+| **Fonts** | Poppins, Comfortaa, Bodoni Moda |
+| **Analytics** | Vercel Speed Insights |
+| **Deployment** | Vercel |
+
+---
+
+## 🧩 **Project Architecture**
 
 ```
 src/
 ├── app/
-│   ├── (auth)/              # Authentication pages
-│   │   ├── login/
-│   │   ├── signup/
-│   │   └── layout.tsx
-│   ├── (client)/            # Main client pages
-│   │   ├── about-us/
-│   │   ├── contact-us/
-│   │   ├── hero/
-│   │   ├── main/
-│   │   │   ├── wallet/
-│   │   │   └── growth/
-│   │   └── layout.tsx
-│   ├── globals.css
-│   ├── layout.tsx
-│   └── not-found.tsx
+│ ├── (auth)/ # Authentication flows
+│ │ ├── login/
+│ │ ├── signup/
+│ │ └── layout.tsx
+│ ├── (client)/ # Public client-facing pages
+│ │ ├── about-us/
+│ │ ├── contact-us/
+│ │ ├── hero/ # Hero / Landing
+│ │ ├── main/ # Main product layers
+│ │ │ ├── FinancialLayer/
+│ │ │ ├── IdentityLayer/
+│ │ │ ├── StoreGrowthLayer/
+│ │ │ ├── TrustNetworkLayer/
+│ │ │ ├── CopilotLayer/
+│ │ │ └── CommunityImpactLayer/
+│ │ └── layout.tsx
+│ ├── globals.css
+│ ├── layout.tsx
+│ └── not-found.tsx
 ├── components/
-│   ├── Footer/
-│   ├── NavBar/
-│   └── ui/                  # Reusable UI components
-├── hooks/                   # Custom React hooks
-├── lib/
-│   ├── constants.ts
-│   └── utils.ts
+│ ├── NavBar/
+│ ├── Footer/
+│ ├── ContactForm/
+│ │ ├── ContactFormSection.tsx
+│ │ ├── ContactInput.tsx
+│ │ └── ContactTextArea.tsx
+│ └── ui/ # Generic UI components (buttons, cards, etc.)
+├── hooks/ # Custom React hooks
+├── lib/ # Reusable logic and constants
+│ ├── constants.ts
+│ └── utils.ts
 └── types/
-    └── common.ts
+└── common.ts
 ```
 
 ## 🚀 Getting Started
@@ -108,24 +137,15 @@ src/
 - **About Us** (`/about-us`): Company story, mission, values, and team
 - **Contact Us** (`/contact-us`): Contact form, office locations, and FAQ
 
-### Wallet Features
-- **Wallet Intro**: Overview of Foinda Wallet capabilities
-- **Cross-Border Power**: International payment features
-- **Foinda Advance**: Creator funding solutions
-
-### Authentication
-- **Login** (`/login`): User authentication with social login options
-- **Signup** (`/signup`): Account creation with form validation
-
 ## 🎨 Design System
 
-### Color Palette
+### 🎨 Color Palette
 - **Primary Orange**: `#F97316` - Main brand color
 - **Dark Blue**: `#1B2A41` - Text and dark sections
 - **Light Blue**: `#74CBE3` - Accent color
 - **Background**: Gradient from `#FFF8F4` to `#E6F7FB`
 
-### Typography
+### 🅰️ Typography
 - **Primary Font**: Poppins (400, 500, 600, 700)
 - **Secondary Font**: Comfortaa (400, 500, 600, 700)
 

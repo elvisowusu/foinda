@@ -1,5 +1,5 @@
 import React from "react";
-import { motion, MotionProps } from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function FoindaCard() {
   return (

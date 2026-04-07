@@ -3,16 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Facebook,
-  Twitter,
-  Instagram,
-  Linkedin,
-  Youtube,
-} from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import { useRef } from "react";
 
 /* -------------------- ARRAYS AT TOP -------------------- */
@@ -34,33 +25,6 @@ const footerSections = [
   },
 ];
 
-const socialLinks = [
-  {
-    icon: <Facebook className="w-5 h-5" />,
-    link: "https://facebook.com/foinda",
-    label: "Facebook",
-  },
-  {
-    icon: <Twitter className="w-5 h-5" />,
-    link: "https://twitter.com/foinda",
-    label: "Twitter",
-  },
-  {
-    icon: <Instagram className="w-5 h-5" />,
-    link: "https://instagram.com/foinda",
-    label: "Instagram",
-  },
-  {
-    icon: <Linkedin className="w-5 h-5" />,
-    link: "https://linkedin.com/company/foinda",
-    label: "LinkedIn",
-  },
-  {
-    icon: <Youtube className="w-5 h-5" />,
-    link: "https://youtube.com/foinda",
-    label: "YouTube",
-  },
-];
 
 const contactInfo = [
   { icon: <Mail className="w-4 h-4" />, text: "admin@foinda.com" },
@@ -98,7 +62,7 @@ export default function Footer() {
         ref={newsletterRef}
         className="border-t border-gray-700 transition-all duration-500"
       >
-        <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div className="max-w-360 mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -144,7 +108,7 @@ export default function Footer() {
         </div>
       </div>
       {/* Main Footer Content */}
-      <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-360 mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-10">
           {/* Brand Section */}
           <div className="lg:col-span-2">
@@ -184,22 +148,6 @@ export default function Footer() {
                 ))}
               </div>
 
-              {/* Social Links */}
-              {/* <div className="flex flex-wrap gap-3">
-                {socialLinks.map((social, index) => (
-                  <motion.a
-                    key={index}
-                    href={social.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.1 }}
-                    className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-gray-300 hover:bg-orange-500 hover:text-white transition-colors"
-                    aria-label={social.label}
-                  >
-                    {social.icon}
-                  </motion.a>
-                ))}
-              </div> */}
             </motion.div>
           </div>
 
@@ -236,7 +184,7 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-gray-700">
-        <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="max-w-360 mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}

@@ -156,7 +156,7 @@ export default function Home() {
       <section className="bg-orange-500 py-8 px-4 sm:px-6 lg:px-16">
         <div className="max-w-4xl mx-auto">
           <motion.p {...fadeUp()} className="text-center text-orange-100 text-xs uppercase tracking-widest mb-6">
-            The problem we're solving
+            The problem we&apos;re solving
           </motion.p>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
             {stats.map((stat, i) => (

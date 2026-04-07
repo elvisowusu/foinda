@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+// import Image from "next/image";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import Lottie from "lottie-react";
 import { useEffect, useState } from "react";
@@ -14,10 +14,9 @@ interface HeroVisualProps {
 }
 
 export default function HeroVisual({
-  moneyImageSrc = "/human1.png",
   dotLottieSrc = "https://lottie.host/9a7b05e7-559c-4c12-af2d-1575936271f6/wdgsp48St8.lottie",
   lottieJsonUrl = "https://assets3.lottiefiles.com/packages/lf20_5gdcuanx.json",
-}: HeroVisualProps) {
+}: Omit<HeroVisualProps, "moneyImageSrc">) {
   const [socialAnimation, setSocialAnimation] = useState<object | null>(null);
 
   useEffect(() => {

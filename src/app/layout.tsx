@@ -25,16 +25,16 @@ const comfortaa = Comfortaa({
 export const metadata: Metadata = {
   title: "Foinda - Infrastructure for economic visibility",
   description:
-    "Foinda empowers African creators, freelancers, and digital entrepreneurs with borderless payment solutions, instant funding, and comprehensive financial tools. Transform your creativity into capital.",
+    "Foinda builds infrastructure for the future of work, income, and economic participation — unlocking financial access for millions of informal earners globally through real-time income intelligence.",
   keywords: [
-    "African creators",
-    "borderless payments",
-    "creator finance",
-    "mobile money",
-    "cross-border payments",
-    "digital wallet",
-    "freelancer payments",
+    "informal economy",
+    "financial inclusion",
+    "income intelligence",
     "Africa fintech",
+    "economic participation",
+    "financial infrastructure",
+    "unbanked",
+    "fintech API",
   ],
   authors: [{ name: "Foinda Team" }],
   creator: "Foinda",
@@ -57,13 +57,13 @@ export const metadata: Metadata = {
     siteName: "Foinda",
     title: "Foinda - Infrastructure for economic visibility",
     description:
-      "Transform your creativity into capital with Foinda's borderless payment solutions and instant funding for African creators.",
+      "Building the rails that connect informal earners to banks, fintechs, and government through real-time income intelligence.",
     images: [
       {
         url: "/logo.jpg",
         width: 1200,
         height: 630,
-        alt: "Foinda - Empowering African Creators",
+        alt: "Foinda - Infrastructure for economic visibility",
       },
     ],
   },
@@ -71,8 +71,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Foinda - Infrastructure for economic visibility",
     description:
-      "Transform your creativity into capital with Foinda's borderless payment solutions and instant funding for African creators.",
-    images: ["/coin.avif"],
+      "Building the rails that connect informal earners to banks, fintechs, and government through real-time income intelligence.",
+    images: ["/logo.jpg"],
   },
   viewport: {
     width: "device-width",

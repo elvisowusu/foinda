@@ -18,45 +18,18 @@ import { useRef } from "react";
 /* -------------------- ARRAYS AT TOP -------------------- */
 const footerSections = [
   {
-    title: "About",
-    links: [
-      { text: "About Us", link: "/about-us" },
-      // { text: "Our Mission", link: "/about-us#mission" },
-      { text: "Our Mission", link: "/about-us" },
-      // { text: "Team", link: "/about-us#team" },
-      { text: "Team", link: "/about-us" },
-      // { text: "Careers", link: "/careers" },
-      // { text: "Press", link: "/press" }
+    title: "Platform",
+    anchors: [
+      { text: "Mission", id: "mission" },
+      { text: "Platform", id: "platform" },
+      { text: "Vision", id: "vision" },
     ],
   },
-  // {
-  //   title: "Product",
-  //   links: [
-  //     { text: "Foinda Wallet", link: "/wallet" },
-  //     { text: "Foinda Advance", link: "/wallet#advance" },
-  //     { text: "Identity Layer", link: "/wallet#identity" },
-  //     { text: "Store & Growth", link: "/wallet#store" },
-  //     { text: "Copilot", link: "/wallet#copilot" }
-  //   ]
-  // },
-  // {
-  //   title: "Community",
-  //   links: [
-  //     { text: "Creator Network", link: "/wallet#network" },
-  //     { text: "Success Stories", link: "/wallet#stories" },
-  //     { text: "Blog", link: "/blog" },
-  //     { text: "Events", link: "/events" },
-  //     { text: "Partners", link: "/partners" }
-  //   ]
-  // },
   {
-    title: "Support",
-    links: [
-      { text: "Help Center", link: "/contact-us" },
-      { text: "Contact Us", link: "/contact-us" },
-      // { text: "API Docs", link: "/docs" },
-      { text: "Status", link: "/status" },
-      // { text: "Security", link: "/security" }
+    title: "Company",
+    anchors: [
+      { text: "Join Us", id: "join" },
+      { text: "Join Waitlist", id: "footer" },
     ],
   },
 ];
@@ -241,14 +214,18 @@ export default function Footer() {
             >
               <h3 className="text-lg font-semibold mb-4">{section.title}</h3>
               <ul className="space-y-3">
-                {section.links.map((link, linkIndex) => (
-                  <li key={linkIndex}>
-                    <Link
-                      href={link.link}
-                      className="text-gray-300 hover:text-orange-500 transition-colors text-sm"
+                {section.anchors.map((anchor, anchorIndex) => (
+                  <li key={anchorIndex}>
+                    <button
+                      onClick={() =>
+                        document
+                          .getElementById(anchor.id)
+                          ?.scrollIntoView({ behavior: "smooth" })
+                      }
+                      className="text-gray-300 hover:text-orange-500 transition-colors text-sm text-left"
                     >
-                      {link.text}
-                    </Link>
+                      {anchor.text}
+                    </button>
                   </li>
                 ))}
               </ul>

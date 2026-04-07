@@ -44,10 +44,14 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  const atTop = !scrolled;
+
   return (
     <nav
-      className={`w-full fixed z-20 font-poppins bg-white text-[#1B2A41] transition-shadow duration-300 ${
-        scrolled ? "shadow-md" : ""
+      className={`w-full fixed z-20 font-poppins transition-all duration-500 ${
+        atTop
+          ? "bg-transparent text-white"
+          : "bg-white text-[#1B2A41] shadow-md"
       }`}
     >
       <div className="max-width-wrapper flex justify-between items-center py-3">
@@ -59,23 +63,34 @@ export default function Navbar() {
             alt="Foinda Logo"
             className="rounded-full"
           />
-          <span className="ml-2 text-xl font-bold text-[#1B2A41]">Foinda</span>
+          <span className={`ml-2 text-xl font-bold transition-colors duration-500 ${atTop ? "text-white" : "text-[#1B2A41]"}`}>
+            Foinda
+          </span>
         </Link>
 
         {/* Desktop nav links */}
         <div className="hidden md:flex items-center gap-6 text-sm">
           {navLinks.map((navLink, index) => {
-            const isActive =
-              pathname === navLink.link ||
-              pathname.startsWith(navLink.link + "/");
-            return (
+            const isAnchor = navLink.link.startsWith("#");
+            return isAnchor ? (
+              <button
+                key={index}
+                onClick={() => {
+                  const id = navLink.link.slice(1);
+                  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className={`transition-colors duration-500 hover:text-orange-400 ${atTop ? "text-white/80" : "text-[#1B2A41]"}`}
+              >
+                {navLink.text}
+              </button>
+            ) : (
               <Link
                 key={index}
                 href={navLink.link}
-                className={`transition-colors ${
-                  isActive
-                    ? "text-orange-500 underline underline-offset-4"
-                    : "text-[#1B2A41] hover:text-orange-500"
+                className={`transition-colors duration-500 ${
+                  pathname === navLink.link
+                    ? "text-orange-400 underline underline-offset-4"
+                    : atTop ? "text-white/80 hover:text-orange-400" : "text-[#1B2A41] hover:text-orange-500"
                 }`}
               >
                 {navLink.text}
@@ -94,7 +109,11 @@ export default function Navbar() {
                 footer.scrollIntoView({ behavior: "smooth" });
               }
             }}
-            className="mx-4 my-2 h-10 w-[9rem] text-white bg-orange-500 hover:bg-orange-600 border-none rounded-md"
+            className={`mx-4 my-2 h-10 w-36 border-none rounded-md transition-all duration-500 ${
+              atTop
+                ? "bg-orange-500 text-white hover:bg-orange-400 ring-1 ring-white/20"
+                : "bg-orange-500 text-white hover:bg-orange-600"
+            }`}
           >
             Join Waitlist
           </Button>
@@ -104,12 +123,12 @@ export default function Navbar() {
         <div className="sm:hidden relative" ref={dropdownRef}>
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="p-2 border rounded-md"
+            className={`p-2 border rounded-md transition-colors duration-500 ${atTop ? "border-white/30" : "border-gray-200"}`}
           >
             {isOpen ? (
-              <X className="w-6 h-6 text-[#1B2A41]" />
+              <X className={`w-6 h-6 transition-colors duration-500 ${atTop ? "text-white" : "text-[#1B2A41]"}`} />
             ) : (
-              <MenuIcon className="w-6 h-6 text-[#1B2A41]" />
+              <MenuIcon className={`w-6 h-6 transition-colors duration-500 ${atTop ? "text-white" : "text-[#1B2A41]"}`} />
             )}
           </button>
 
@@ -124,16 +143,26 @@ export default function Navbar() {
               >
                 <div className="flex flex-col">
                   {navLinks.map((navLink, index) => {
-                    const isActive =
-                      pathname === navLink.link ||
-                      pathname.startsWith(navLink.link + "/");
-                    return (
+                    const isAnchor = navLink.link.startsWith("#");
+                    return isAnchor ? (
+                      <button
+                        key={index}
+                        onClick={() => {
+                          setIsOpen(false);
+                          const id = navLink.link.slice(1);
+                          document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+                        }}
+                        className="px-4 py-3 text-left text-sm transition-colors text-[#1B2A41] hover:text-orange-500"
+                      >
+                        {navLink.text}
+                      </button>
+                    ) : (
                       <Link
                         key={index}
                         href={navLink.link}
                         onClick={() => setIsOpen(false)}
                         className={`px-4 py-3 text-left text-sm transition-colors ${
-                          isActive
+                          pathname === navLink.link
                             ? "text-orange-500 font-medium"
                             : "text-[#1B2A41] hover:text-orange-500"
                         }`}
@@ -151,7 +180,7 @@ export default function Navbar() {
                         footer.scrollIntoView({ behavior: "smooth" });
                       }
                     }}
-                    className="mx-4 my-2 h-10 w-[9rem] text-white bg-orange-500 hover:bg-orange-600 border-none rounded-md"
+                    className="mx-4 my-2 h-10 w-36 text-white bg-orange-500 hover:bg-orange-600 border-none rounded-md"
                   >
                     Join Waitlist
                   </Button>

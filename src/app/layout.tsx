@@ -23,7 +23,7 @@ const comfortaa = Comfortaa({
 });
 
 export const metadata: Metadata = {
-  title: "Foinda - Empowering African Creators with Borderless Finance",
+  title: "Foinda - Infrastructure for economic visibility",
   description:
     "Foinda empowers African creators, freelancers, and digital entrepreneurs with borderless payment solutions, instant funding, and comprehensive financial tools. Transform your creativity into capital.",
   keywords: [
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://foinda.com",
     siteName: "Foinda",
-    title: "Foinda - Empowering African Creators with Borderless Finance",
+    title: "Foinda - Infrastructure for economic visibility",
     description:
       "Transform your creativity into capital with Foinda's borderless payment solutions and instant funding for African creators.",
     images: [
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Foinda - Empowering African Creators with Borderless Finance",
+    title: "Foinda - Infrastructure for economic visibility",
     description:
       "Transform your creativity into capital with Foinda's borderless payment solutions and instant funding for African creators.",
     images: ["/coin.avif"],

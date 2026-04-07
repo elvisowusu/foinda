@@ -1,4 +1,3 @@
-import Footer from "@/components/Footer";
 import NavBar from "@/components/NavBar";
 
 export default function HomeLayout({
@@ -10,7 +9,6 @@ export default function HomeLayout({
     <div className="font-poppins min-h-screen">
       <NavBar />
       {children}
-      <Footer />
     </div>
   );
 }

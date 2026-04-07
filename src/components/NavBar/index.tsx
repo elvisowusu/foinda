@@ -69,7 +69,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop nav links */}
-        <div className="hidden md:flex items-center gap-6 text-sm">
+        <div className="hidden items-center gap-6 text-sm">
           {navLinks.map((navLink, index) => {
             const isAnchor = navLink.link.startsWith("#");
             return isAnchor ? (
@@ -100,7 +100,7 @@ export default function Navbar() {
         </div>
 
         {/* Desktop CTA */}
-        <div className="hidden sm:flex items-center gap-4">
+        <div className="hidden items-center gap-4">
           <Button
             onClick={() => {
               setIsOpen(false);
@@ -120,7 +120,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile dropdown */}
-        <div className="sm:hidden relative" ref={dropdownRef}>
+        <div className="hidden relative" ref={dropdownRef}>
           <button
             onClick={() => setIsOpen(!isOpen)}
             className={`p-2 border rounded-md transition-colors duration-500 ${atTop ? "border-white/30" : "border-gray-200"}`}
